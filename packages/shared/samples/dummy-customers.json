@@ -1,0 +1,217 @@
+[
+  {
+    "id": "demo-grade-a",
+    "name": "실검위젯",
+    "platform": "Android",
+    "category": "유틸리티",
+    "categorySub": "위젯",
+    "region": "KR",
+    "measurementGrade": "A",
+    "level": 2,
+    "levelName": "광고 단일 의존",
+    "metrics": {
+      "dau": 2500,
+      "mau": 12000,
+      "stickiness": 0.208,
+      "monthlyRevenue": 400000,
+      "currentModels": ["admob_banner", "admob_interstitial"],
+      "ecpm": 1600,
+      "arpu": 33
+    },
+    "goals": {
+      "targetRevenue": 1500000,
+      "revenueGap": 1100000
+    },
+    "diagnosis": {
+      "levelReason": "AdMob만 사용 중이고 인앱결제 시도 이력 없음",
+      "keyInsight": "ARPU가 카테고리 하위. 광고 효율은 평균이므로 수익 개선 핵심은 추가 수익 모델 도입.",
+      "potential": "현재 대비 3~5배 수익 가능"
+    },
+    "recommendation": {
+      "primaryModel": "구독 (프리미엄 번들)",
+      "reason": "Stickiness 20.8%로 구독 유지율 기대 가능",
+      "bundleItems": ["광고 제거", "실시간 키워드 알림", "커스텀 위젯 테마"],
+      "priceA": 2900,
+      "priceB": 3900,
+      "sdk": "RevenueCat"
+    },
+    "simulation": {
+      "price": 2900,
+      "scenarios": [
+        { "label": "보수적", "conversionRate": 0.015, "subscribers": 180, "subscriptionRevenue": 522000, "adRevenue": 400000, "total": 922000 },
+        { "label": "기본", "conversionRate": 0.03, "subscribers": 360, "subscriptionRevenue": 1044000, "adRevenue": 400000, "total": 1444000 },
+        { "label": "낙관적", "conversionRate": 0.05, "subscribers": 600, "subscriptionRevenue": 1740000, "adRevenue": 400000, "total": 2140000 }
+      ]
+    },
+    "benchmarks": {
+      "ecpmBanner": { "avg": 1.2, "unit": "USD" },
+      "ecpmInterstitial": { "avg": 5.5, "unit": "USD" },
+      "ecpmRewarded": { "avg": 12.0, "unit": "USD" },
+      "subscriptionConversion": { "low": 0.015, "median": 0.028, "high": 0.05 },
+      "subscriptionPrice": { "low": 1900, "high": 5900, "unit": "KRW/월" },
+      "churnMonthly": { "low": 0.08, "high": 0.15 },
+      "arpuAdOnly": { "low": 20, "high": 80 },
+      "arpuCombined": { "low": 80, "high": 300 },
+      "stickiness": { "low": 0.15, "high": 0.30 },
+      "retention": { "day1": { "low": 0.25, "high": 0.40 }, "day7": { "low": 0.10, "high": 0.20 } },
+      "verdict": {
+        "ecpm": "평균",
+        "stickiness": "평균",
+        "arpu": "하위",
+        "arpuAdOnly": "하위"
+      }
+    },
+    "roadmap": {
+      "currentWeek": 1,
+      "totalWeeks": 4,
+      "weeks": [
+        {
+          "week": 1,
+          "theme": "준비 — 무엇을 팔 것인가",
+          "tasks": [
+            "프리미엄 기능 후보 3개 리스트업",
+            "경쟁 앱 유료 기능 조사 (3개 앱)",
+            "프리미엄 번들 확정 + 가격 결정"
+          ],
+          "hours": "3~4시간",
+          "deliverable": "프리미엄 번들 스펙 1장"
+        },
+        {
+          "week": 2,
+          "theme": "구현 — 결제 가능하게 만들기",
+          "tasks": [
+            "RevenueCat 세팅",
+            "구독 화면 UI 구현",
+            "기존 기능에 프리미엄 잠금 적용",
+            "테스트 빌드 확인"
+          ],
+          "hours": "6~8시간",
+          "deliverable": "구독 결제 가능한 빌드"
+        },
+        {
+          "week": 3,
+          "theme": "출시 — 시장에 내놓기",
+          "tasks": [
+            "플레이스토어 업데이트",
+            "기존 유저 인앱 메시지 발송",
+            "전환율 일일 트래킹 시작"
+          ],
+          "hours": "2~3시간",
+          "deliverable": "7일간 전환율 데이터"
+        },
+        {
+          "week": 4,
+          "theme": "판단 — 데이터로 결정하기",
+          "tasks": [
+            "7일 전환율 확인",
+            "Go/Adjust/Redesign 판단"
+          ],
+          "hours": "1~2시간",
+          "deliverable": "Week 4 판단 리포트",
+          "goNoGo": {
+            "go": "전환율 ≥ 1.5% → 가격 A/B 테스트",
+            "adjust": "전환율 0.5~1.5% → 번들 변경 또는 가격 인하",
+            "redesign": "전환율 < 0.5% → 번들 가치 재검토"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "demo-grade-b",
+    "name": "하루루틴",
+    "platform": "Android",
+    "category": "라이프스타일",
+    "categorySub": "습관",
+    "region": "KR",
+    "measurementGrade": "B",
+    "level": 3,
+    "levelName": "복합 수익 초기",
+    "metrics": {
+      "dau": 800,
+      "mau": 5200,
+      "stickiness": 0.154,
+      "monthlyRevenue": 180000,
+      "currentModels": ["admob_banner", "admob_interstitial", "iap_theme"],
+      "ecpm": 1200,
+      "arpu": 35
+    },
+    "goals": {
+      "targetRevenue": 500000,
+      "revenueGap": 320000
+    },
+    "diagnosis": {
+      "levelReason": "인앱결제 시도 중이나 전환율이 카테고리 평균 이하",
+      "keyInsight": "인앱결제를 시도했지만 전환율이 부족. GA4 이벤트 데이터 없이는 병목 파악 불가.",
+      "potential": "현재 대비 2~3배 수익 가능"
+    },
+    "measurementGaps": [
+      { "item": "Firebase Analytics GA4 이벤트", "guide": "GA4 이벤트 트래킹 세팅", "time": "30분" },
+      { "item": "구매 전환 퍼널", "guide": "퍼널 이벤트 설정", "time": "15분" }
+    ],
+    "recommendation": {
+      "primaryModel": "일회성 인앱결제 (프리미엄 테마팩)",
+      "reason": "Stickiness 15.4%로 구독 이탈 우려 — 일회성 결제 적합",
+      "priceRange": "₩3,900~₩6,900",
+      "confirmed": false
+    },
+    "benchmarks": {
+      "iapBuyerRate": { "low": 0.03, "median": 0.055, "high": 0.10 },
+      "iapAvgPrice": { "low": 4000, "high": 12000 },
+      "ecpmBanner": { "avg": 1.0, "unit": "USD" },
+      "ecpmInterstitial": { "avg": 4.5, "unit": "USD" },
+      "arpuAdOnly": { "low": 15, "high": 60 },
+      "arpuCombined": { "low": 60, "high": 250 },
+      "stickiness": { "low": 0.12, "high": 0.25 },
+      "verdict": {
+        "ecpm": "평균",
+        "stickiness": "하위",
+        "arpu": "하위"
+      }
+    }
+  },
+  {
+    "id": "demo-grade-c",
+    "name": "단어장 퀴즈",
+    "platform": "Android",
+    "category": "교육",
+    "categorySub": "어학",
+    "region": "KR",
+    "measurementGrade": "C",
+    "level": 1,
+    "levelName": "수익 모델 없음",
+    "metrics": {
+      "dau": null,
+      "mau": null,
+      "stickiness": null,
+      "monthlyRevenue": 0,
+      "currentModels": [],
+      "ecpm": null,
+      "arpu": null,
+      "downloads": 3000
+    },
+    "goals": {
+      "targetRevenue": 300000,
+      "revenueGap": 300000
+    },
+    "measurementGaps": [
+      { "item": "Firebase Analytics", "guide": "Firebase 프로젝트 생성 + Analytics 세팅", "time": "30분~1시간" },
+      { "item": "AdMob", "guide": "AdMob 계정 생성 + 배너 광고 삽입", "time": "1시간" }
+    ],
+    "setupRoadmap": {
+      "phase1": { "days": "Day 1~3", "title": "측정 인프라 설치", "tasks": ["Firebase Analytics 세팅", "AdMob 배너 1개 삽입"] },
+      "phase2": { "days": "Day 4~10", "title": "데이터 축적", "tasks": ["매일 3분 체크: Firebase Console > 실시간"] },
+      "phase3": { "days": "Day 11~14", "title": "첫 데이터 리뷰", "tasks": ["DAU/MAU/Stickiness 확인", "본 진단 활성화"] }
+    },
+    "benchmarks": {
+      "subscriptionConversion": { "low": 0.02, "median": 0.04, "high": 0.07 },
+      "subscriptionPrice": { "low": 2900, "high": 7900, "unit": "KRW/월" },
+      "ecpmBanner": { "avg": 1.5, "unit": "USD" },
+      "ecpmInterstitial": { "avg": 6.0, "unit": "USD" },
+      "ecpmRewarded": { "avg": 15.0, "unit": "USD" },
+      "arpuAdOnly": { "low": 25, "high": 100 },
+      "arpuCombined": { "low": 100, "high": 400 },
+      "note": "교육 앱은 콘텐츠 잠금(paywall) 모델 적합도 높음"
+    }
+  }
+]

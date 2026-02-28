@@ -1,0 +1,12 @@
+{
+  "name": "apprx",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=packages/dashboard",
+    "build": "npm run build --workspace=packages/dashboard",
+    "cli": "node packages/cli/bin/apprx.js"
+  }
+}

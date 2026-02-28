@@ -1,0 +1,14 @@
+{
+  "name": "@apprx/cli",
+  "version": "0.1.0",
+  "description": "App Revenue Prescription — 개발 환경에 수익화 전략을 통합합니다",
+  "bin": {
+    "apprx": "./bin/apprx.js"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node bin/apprx.js"
+  },
+  "keywords": ["app", "monetization", "revenue", "indie", "developer"],
+  "license": "MIT"
+}
