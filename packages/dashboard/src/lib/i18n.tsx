@@ -6,16 +6,16 @@ export type Language = "ko" | "en";
 
 const translations = {
   // Sidebar nav
-  "nav.appProfile": { ko: "앱 프로필", en: "App Profile" },
-  "nav.level": { ko: "수익화 단계", en: "Monetization Level" },
+  "nav.appProfile": { ko: "애널리틱스", en: "Analytics" },
+  "nav.level": { ko: "마켓", en: "Market" },
   "nav.benchmark": { ko: "벤치마크", en: "Benchmark" },
-  "nav.simulation": { ko: "시뮬레이션", en: "Simulation" },
-  "nav.roadmap": { ko: "로드맵", en: "Roadmap" },
-  "nav.nextSteps": { ko: "다음 스텝", en: "Next Steps" },
+  "nav.simulation": { ko: "비즈니스 모델", en: "Business Model" },
+  "nav.roadmap": { ko: "스프린트", en: "Sprint" },
+  "nav.strategy": { ko: "로드맵", en: "Roadmap" },
 
   // Sidebar UI
-  "sidebar.currentApp": { ko: "현재 앱", en: "Current App" },
-  "sidebar.diagnosisResults": { ko: "진단 결과", en: "Diagnosis Results" },
+  "sidebar.currentApp": { ko: "현재 서비스", en: "Current Service" },
+  "sidebar.diagnosisResults": { ko: "성장 현황", en: "Growth Status" },
   "sidebar.expiry": { ko: "만료", en: "Expires" },
   "sidebar.settings": { ko: "설정", en: "Settings" },
   "sidebar.accessibility": { ko: "접근성", en: "Accessibility" },
@@ -24,94 +24,160 @@ const translations = {
   "sidebar.darkMode": { ko: "다크", en: "Dark" },
 
   // AppProfile
-  "appProfile.title": { ko: "앱 프로필", en: "App Profile" },
-  "appProfile.appName": { ko: "앱 이름", en: "App Name" },
-  "appProfile.category": { ko: "카테고리", en: "Category" },
-  "appProfile.revenueModel": { ko: "수익 모델", en: "Revenue Model" },
+  "appProfile.title": { ko: "프로덕트 애널리틱스", en: "Product Analytics" },
+  "appProfile.product": { ko: "프로덕트", en: "Product" },
+  "appProfile.vertical": { ko: "버티컬", en: "Vertical" },
+  "appProfile.monetizationModel": { ko: "수익화 모델", en: "Monetization Model" },
   "appProfile.none": { ko: "없음", en: "None" },
-  "appProfile.monthlyRevenue": { ko: "월 수익", en: "Monthly Revenue" },
-  "appProfile.target": { ko: "목표", en: "Target" },
-  "appProfile.revenueGap": { ko: "수익 갭", en: "Revenue Gap" },
+  "appProfile.engagement": { ko: "인게이지먼트", en: "Engagement" },
+  "appProfile.revenuePerformance": { ko: "수익 퍼포먼스", en: "Revenue Performance" },
+  "appProfile.mrr": { ko: "MRR", en: "MRR" },
+  "appProfile.revenueTarget": { ko: "매출 목표", en: "Revenue Target" },
+  "appProfile.revenueGap": { ko: "매출 갭", en: "Revenue Gap" },
+  "appProfile.attainment": { ko: "달성률", en: "Attainment" },
   "appProfile.perMonth": { ko: "/월", en: "/mo" },
   "appProfile.model.banner": { ko: "배너", en: "Banner" },
   "appProfile.model.interstitial": { ko: "전면", en: "Interstitial" },
   "appProfile.model.iapTheme": { ko: "인앱(테마)", en: "IAP (Theme)" },
+  "appProfile.model.adsenseDisplay": { ko: "디스플레이 광고", en: "Display Ads" },
+  "appProfile.benchmarkRange": { ko: "벤치마크 범위", en: "Benchmark Range" },
 
   // LevelDiagnosis
-  "level.title": { ko: "수익화 단계 진단", en: "Monetization Level Diagnosis" },
+  "level.title": { ko: "수익화 성숙도", en: "Monetization Maturity" },
   "level.1.name": { ko: "수익 모델 없음", en: "No Revenue Model" },
   "level.1.task": { ko: "첫 수익 모델 선택", en: "Choose First Revenue Model" },
   "level.2.name": { ko: "광고 단일 의존", en: "Ad-only Dependency" },
   "level.2.task": { ko: "수익 모델 다변화", en: "Diversify Revenue Models" },
   "level.3.name": { ko: "복합 수익 초기", en: "Early Hybrid Revenue" },
-  "level.3.task": { ko: "전환율 최적화", en: "Optimize Conversion Rate" },
+  "level.3.task": { ko: "CVR 최적화", en: "Optimize CVR" },
   "level.4.name": { ko: "수익 구조 안정", en: "Stable Revenue Structure" },
-  "level.4.task": { ko: "객단가/리텐션 최적화", en: "Optimize ARPU / Retention" },
+  "level.4.task": { ko: "ARPU / 리텐션 최적화", en: "Optimize ARPU / Retention" },
   "level.5.name": { ko: "스케일 준비", en: "Ready to Scale" },
-  "level.5.task": { ko: "성장 채널 확장", en: "Expand Growth Channels" },
-  "level.basis": { ko: "판정 근거", en: "Basis" },
-  "level.keyTask": { ko: "핵심 과제", en: "Key Task" },
-  "level.potential": { ko: "잠재력", en: "Potential" },
+  "level.5.task": { ko: "그로스 채널 확장", en: "Expand Growth Channels" },
+  "level.assessment": { ko: "진단 기준", en: "Assessment" },
+  "level.keyObjective": { ko: "핵심 OKR", en: "Key Objective" },
+  "level.growthPotential": { ko: "성장 잠재력", en: "Growth Potential" },
+
+  // Market Positioning
+  "level.positioning": { ko: "마켓 포지셔닝", en: "Market Positioning" },
+  "level.positioning.tam": { ko: "TAM", en: "TAM" },
+  "level.positioning.sam": { ko: "SAM", en: "SAM" },
+  "level.positioning.segment": { ko: "타겟 세그먼트", en: "Target Segment" },
+  "level.positioning.stage": { ko: "마켓 스테이지", en: "Market Stage" },
+  "level.positioning.statement": { ko: "포지셔닝 요약", en: "Positioning" },
+  "level.positioning.stage.emerging": { ko: "초기", en: "Emerging" },
+  "level.positioning.stage.growing": { ko: "성장기", en: "Growing" },
+  "level.positioning.stage.mature": { ko: "성숙기", en: "Mature" },
+  "level.positioning.stage.declining": { ko: "쇠퇴기", en: "Declining" },
+
+  // Positioning Map
+  "level.positioning.map": { ko: "포지셔닝 맵", en: "Positioning Map" },
+  "level.positioning.map.target": { ko: "목표 포지션", en: "Target Position" },
+
+  // Competitive Landscape
+  "level.competitive": { ko: "경쟁 환경 분석", en: "Competitive Landscape" },
+  "level.competitive.service": { ko: "서비스", en: "Service" },
+  "level.competitive.model": { ko: "수익 모델", en: "Revenue Model" },
+  "level.competitive.scale": { ko: "규모", en: "Scale" },
+  "level.competitive.diff": { ko: "차별점", en: "Differentiator" },
+  "level.moats": { ko: "경쟁 우위 (Moats)", en: "Competitive Moats" },
+  "level.vulnerabilities": { ko: "리스크 요인", en: "Risk Factors" },
 
   // BenchmarkComparison
-  "benchmark.title": { ko: "벤치마크 비교", en: "Benchmark Comparison" },
-  "benchmark.appSuffix": { ko: "앱", en: "Apps" },
-  "benchmark.metric": { ko: "지표", en: "Metric" },
-  "benchmark.yours": { ko: "당신", en: "Yours" },
-  "benchmark.avg": { ko: "평균", en: "Average" },
-  "benchmark.top25": { ko: "상위 25%", en: "Top 25%" },
-  "benchmark.verdict": { ko: "판정", en: "Verdict" },
-  "benchmark.verdict.low": { ko: "하위", en: "Low" },
-  "benchmark.verdict.avg": { ko: "평균", en: "Avg" },
-  "benchmark.verdict.high": { ko: "상위", en: "High" },
-  "benchmark.keyInsight": { ko: "핵심 인사이트", en: "Key Insight" },
+  "benchmark.title": { ko: "코호트 벤치마크", en: "Cohort Benchmark" },
+  "benchmark.cohort": { ko: "코호트", en: "Cohort" },
+  "benchmark.metric": { ko: "메트릭", en: "Metric" },
+  "benchmark.yours": { ko: "Your", en: "Yours" },
+  "benchmark.p50": { ko: "P50", en: "P50" },
+  "benchmark.p75": { ko: "P75", en: "P75" },
+  "benchmark.percentile": { ko: "퍼센타일", en: "Percentile" },
+  "benchmark.verdict.low": { ko: "Below Avg", en: "Below Avg" },
+  "benchmark.verdict.avg": { ko: "On Par", en: "On Par" },
+  "benchmark.verdict.high": { ko: "Above Avg", en: "Above Avg" },
+  "benchmark.keyInsight": { ko: "Key Insight", en: "Key Insight" },
   "benchmark.sameMAU": {
-    ko: "같은 MAU에서 상위 25% 앱의 월 수익:",
-    en: "Monthly revenue of top 25% apps at same MAU:",
+    ko: "동일 MAU 코호트 P75 MRR:",
+    en: "Same MAU cohort P75 MRR:",
   },
   "benchmark.currentVs": { ko: "현재 대비", en: "vs. current —" },
-  "benchmark.revenuePotential": { ko: "의 수익 잠재력", en: "revenue potential" },
+  "benchmark.revenuePotential": { ko: "수익 업사이드", en: "revenue upside" },
   "benchmark.stickinessLevel": { ko: "수준", en: "level" },
 
+  // BenchmarkComparison section headers
+  "benchmark.section.engagement": { ko: "트래픽 & 인게이지먼트", en: "Traffic & Engagement" },
+  "benchmark.section.revenue": { ko: "수익 퍼포먼스", en: "Revenue Performance" },
+  "benchmark.section.retention": { ko: "리텐션 & 이탈", en: "Retention & Churn" },
+
   // BenchmarkComparison row labels
-  "benchmark.row.ecpm": { ko: "eCPM (전면)", en: "eCPM (Interstitial)" },
-  "benchmark.row.dauMau": { ko: "DAU/MAU", en: "DAU/MAU" },
-  "benchmark.row.arpu": { ko: "ARPU (전체)", en: "ARPU (Total)" },
-  "benchmark.row.arpuAdOnly": { ko: "광고 only ARPU", en: "Ad-only ARPU" },
+  "benchmark.row.ecpm": { ko: "eCPM (Display)", en: "eCPM (Display)" },
+  "benchmark.row.dauMau": { ko: "DAU/MAU Ratio", en: "DAU/MAU Ratio" },
+  "benchmark.row.arpu": { ko: "ARPU (Blended)", en: "ARPU (Blended)" },
+  "benchmark.row.arpuAdOnly": { ko: "ARPU (Ad-only)", en: "ARPU (Ad-only)" },
+  "benchmark.row.bounceRate": { ko: "Bounce Rate", en: "Bounce Rate" },
+  "benchmark.row.sessionDuration": { ko: "Avg. Session Duration", en: "Avg. Session Duration" },
+  "benchmark.row.pagesPerSession": { ko: "Pages / Session", en: "Pages / Session" },
+  "benchmark.row.retentionD1": { ko: "D1 Retention", en: "D1 Retention" },
+  "benchmark.row.retentionD7": { ko: "D7 Retention", en: "D7 Retention" },
+  "benchmark.row.churn": { ko: "Monthly Churn Rate", en: "Monthly Churn Rate" },
+
+  // Benchmark data sources
+  "benchmark.source": { ko: "데이터 소스", en: "Data Sources" },
+  "benchmark.source.traffic": { ko: "SimilarWeb 코호트 벤치마크", en: "SimilarWeb Cohort Benchmark" },
+  "benchmark.source.ux": { ko: "Beusable CX 분석", en: "Beusable CX Analytics" },
+  "benchmark.source.retention": { ko: "ThinkingData 코호트 리텐션", en: "ThinkingData Cohort Retention" },
 
   // RevenueSimulation
-  "simulation.title": { ko: "수익 시뮬레이션", en: "Revenue Simulation" },
-  "simulation.recommendedModel": { ko: "추천 수익 모델", en: "Recommended Model" },
-  "simulation.subscriptionPrice": { ko: "구독 가격", en: "Subscription Price" },
+  "simulation.title": { ko: "매출 포캐스팅", en: "Revenue Forecast" },
+  "simulation.recommendedModel": { ko: "추천 수익화 모델", en: "Recommended Model" },
+  "simulation.pricePoint": { ko: "가격 포인트", en: "Price Point" },
   "simulation.perMonth": { ko: "/월", en: "/mo" },
-  "simulation.conversionRate": { ko: "전환율", en: "Conv. Rate" },
+  "simulation.cvr": { ko: "CVR", en: "CVR" },
   "simulation.subscribers": { ko: "명", en: "subs" },
-  "simulation.subscription": { ko: "구독", en: "Subscription" },
-  "simulation.adRevenue": { ko: "+ 광고", en: "+ Ads" },
-  "simulation.total": { ko: "합산", en: "Total" },
-  "simulation.default": { ko: "기본", en: "Base" },
-  "simulation.goalMet": { ko: "목표 달성", en: "Goal Met" },
-  "simulation.goalNotMet": { ko: "목표 미달", en: "Below Target" },
-  "simulation.formula": { ko: "계산식", en: "Formula" },
+  "simulation.subscription": { ko: "구독 매출", en: "Subscription Rev." },
+  "simulation.adRevenue": { ko: "+ 광고 매출", en: "+ Ad Rev." },
+  "simulation.total": { ko: "Total MRR", en: "Total MRR" },
+  "simulation.default": { ko: "Base", en: "Base" },
+  "simulation.goalMet": { ko: "Target 달성", en: "Target Met" },
+  "simulation.goalNotMet": { ko: "Target 미달", en: "Below Target" },
+  "simulation.formula": { ko: "산출 로직", en: "Calculation Logic" },
   "simulation.formulaDesc": {
-    ko: "× 전환율 ×",
-    en: "× Conv. Rate ×",
+    ko: "× CVR ×",
+    en: "× CVR ×",
   },
-  "simulation.formulaResult": { ko: "= 구독 수익", en: "= Subscription Revenue" },
+  "simulation.formulaResult": { ko: "= 구독 매출", en: "= Subscription Revenue" },
   "simulation.convBasis": {
-    ko: "전환율 근거: 카테고리 평균 1.5~5% (RevenueCat 2024 리포트)",
-    en: "Conv. rate basis: Category avg. 1.5–5% (RevenueCat 2024 Report)",
+    ko: "CVR 근거: 카테고리 벤치마크 1.5~6% (웹 SaaS/커뮤니티)",
+    en: "CVR basis: Category benchmark 1.5–6% (Web SaaS/Community)",
   },
   "simulation.disclaimer": {
-    ko: "※ 카테고리 벤치마크 기반 추정이며 보장 수치가 아닙니다",
-    en: "※ Estimates based on category benchmarks; not guaranteed",
+    ko: "※ 코호트 벤치마크 기반 추정치이며, 실제 퍼포먼스와 상이할 수 있습니다",
+    en: "※ Estimates based on cohort benchmarks; actual performance may vary",
   },
 
   // Roadmap
-  "roadmap.title": { ko: "30일 실행 로드맵", en: "30-Day Execution Roadmap" },
+  "roadmap.title": { ko: "스프린트 실행 로드맵", en: "Sprint Execution Roadmap" },
   "roadmap.current": { ko: "현재", en: "Current" },
   "roadmap.deliverable": { ko: "산출물:", en: "Deliverable:" },
   "roadmap.criteria": { ko: "판단 기준", en: "Decision Criteria" },
+  "roadmap.sprint": { ko: "스프린트", en: "Sprint" },
+  "roadmap.timeline": { ko: "타임라인", en: "Timeline" },
+  "roadmap.priority.high": { ko: "높음", en: "High" },
+  "roadmap.priority.medium": { ko: "보통", en: "Medium" },
+  "roadmap.priority.low": { ko: "낮음", en: "Low" },
+  "roadmap.day": { ko: "일", en: "D" },
+  "roadmap.hypothesis": { ko: "가설", en: "Hypothesis" },
+  "roadmap.metric": { ko: "검증 지표", en: "Validation" },
+
+  // Strategy (Macro Roadmap)
+  "strategy.title": { ko: "로드맵", en: "Roadmap" },
+  "strategy.northStar": { ko: "North Star", en: "North Star" },
+  "strategy.timeframe": { ko: "타임프레임", en: "Timeframe" },
+  "strategy.phase": { ko: "Phase", en: "Phase" },
+  "strategy.theme": { ko: "전략 테마", en: "Strategy Theme" },
+  "strategy.goals": { ko: "핵심 목표", en: "Key Goals" },
+  "strategy.status.active": { ko: "진행 중", en: "Active" },
+  "strategy.status.upcoming": { ko: "예정", en: "Upcoming" },
+  "strategy.status.completed": { ko: "완료", en: "Done" },
 
   // MeasurementSetup
   "measurement.title": { ko: "측정 준비도", en: "Measurement Readiness" },
@@ -119,12 +185,12 @@ const translations = {
   "measurement.partialSetup": { ko: "부분 설정", en: "Partially Set Up" },
   "measurement.notSetup": { ko: "미설정", en: "Not Set Up" },
   "measurement.partialMsg": {
-    ko: "일부 측정 항목이 누락되어 있습니다. 보완하면 정밀 진단이 가능합니다.",
-    en: "Some measurement items are missing. Complete them for a precise diagnosis.",
+    ko: "일부 측정 항목이 누락되어 있습니다. 보완하면 정밀한 성장 전략이 가능합니다.",
+    en: "Some measurement items are missing. Complete them for precise growth guidance.",
   },
   "measurement.notSetupMsg": {
-    ko: "지표 없이는 진단도 처방도 추측입니다. 측정 체계를 갖추는 것이 첫 번째 처방입니다.",
-    en: "Without metrics, diagnosis and prescription are guesswork. Setting up measurement is the first prescription.",
+    ko: "지표 없이는 실행도 검증도 불가능합니다. 측정 체계를 갖추는 것이 첫 번째 스프린트입니다.",
+    en: "Without metrics, execution and validation are impossible. Setting up measurement is the first sprint.",
   },
   "measurement.timeline": { ko: "2주 세팅 타임라인", en: "2-Week Setup Timeline" },
   "measurement.day1_3": {
@@ -136,36 +202,47 @@ const translations = {
     en: "Accumulate data (3 min daily check)",
   },
   "measurement.day11_14": {
-    ko: "첫 데이터 리뷰 → 본 진단 활성화",
-    en: "First data review → Full diagnosis activation",
+    ko: "첫 데이터 리뷰 → 성장 전략 활성화",
+    en: "First data review → Growth strategy activation",
   },
 
-  // NextSteps
-  "nextSteps.title": { ko: "다음 스텝", en: "Next Steps" },
-  "nextSteps.dashboardAccess": {
-    ko: "이 대시보드는",
-    en: "This dashboard is accessible until",
+  // Offer banner (sidebar)
+  "offer.headline": { ko: "Pro 플랜", en: "Pro Plan" },
+  "offer.cta": { ko: "자세히 보기", en: "Learn More" },
+
+  // Offer modal
+  "offer.modal.title": { ko: "월간 구독", en: "Monthly Plan" },
+  "offer.modal.price": { ko: "₩49,000", en: "₩49,000" },
+  "offer.modal.perMonth": { ko: "/월", en: "/mo" },
+  "offer.modal.desc": {
+    ko: "스프린트 사이클을 반복할수록 정밀해지는 성장 전략을 경험하세요.",
+    en: "Experience growth strategy that sharpens with each sprint cycle.",
   },
-  "nextSteps.until": { ko: "까지 접근 가능합니다.", en: "." },
-  "nextSteps.monthlyPlan": { ko: "월간 구독 (₩49,000/월)", en: "Monthly Plan (₩49,000/mo)" },
-  "nextSteps.feature1": {
-    ko: "대시보드 지속 접근 (데이터 누적 유지)",
-    en: "Continued dashboard access (data retention)",
+  "offer.modal.feature1": {
+    ko: "대시보드 지속 접근 및 스프린트 이력 유지",
+    en: "Continued dashboard access & sprint history",
   },
-  "nextSteps.feature2": {
-    ko: "매주 실행 결과 기반 전략 업데이트",
-    en: "Weekly strategy updates based on results",
+  "offer.modal.feature2": {
+    ko: "매 스프린트 결과 기반 다음 가설 자동 설계",
+    en: "Next hypothesis auto-designed from sprint results",
   },
-  "nextSteps.feature3": {
-    ko: "실험 이력이 쌓일수록 정밀해지는 처방",
-    en: "Prescriptions that improve with experiment history",
+  "offer.modal.feature3": {
+    ko: "코호트 벤치마크 실시간 업데이트",
+    en: "Real-time cohort benchmark updates",
   },
-  "nextSteps.subscribe": { ko: "월간 구독 시작하기", en: "Start Monthly Plan" },
-  "nextSteps.devIntegration": { ko: "개발 환경 통합:", en: "Dev integration:" },
+  "offer.modal.feature4": {
+    ko: "개발 환경 CLI 통합 (npx @copo/cli init)",
+    en: "Dev CLI integration (npx @copo/cli init)",
+  },
+  "offer.modal.subscribe": { ko: "구독 시작하기", en: "Start Subscription" },
+  "offer.modal.trial": {
+    ko: "현재 무료 체험 중 · 만료 2026.03.29",
+    en: "Free trial active · Expires 2026.03.29",
+  },
 
   // Login
-  "login.title": { ko: "App Rx", en: "App Rx" },
-  "login.subtitle": { ko: "앱 수익 처방전", en: "App Revenue Prescription" },
+  "login.title": { ko: "Copo", en: "Copo" },
+  "login.subtitle": { ko: "Co-Product Owner", en: "Co-Product Owner" },
   "login.email": { ko: "이메일", en: "Email" },
   "login.emailPlaceholder": { ko: "name@example.com", en: "name@example.com" },
   "login.password": { ko: "비밀번호", en: "Password" },
@@ -178,7 +255,7 @@ const translations = {
   "onboarding.prev": { ko: "이전", en: "Previous" },
   "onboarding.next": { ko: "다음", en: "Next" },
   "onboarding.skip": { ko: "건너뛰기", en: "Skip" },
-  "onboarding.startDiagnosis": { ko: "진단 시작", en: "Start Diagnosis" },
+  "onboarding.startDiagnosis": { ko: "성장 시작", en: "Start Growing" },
 
   // Onboarding Step 1
   "onboarding.step1.title": { ko: "기본 정보", en: "Basic Info" },
@@ -253,7 +330,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("apprx-language") as Language | null;
+    const stored = localStorage.getItem("copo-language") as Language | null;
     if (stored === "ko" || stored === "en") {
       setLanguageState(stored);
     }
@@ -262,7 +339,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("apprx-language", lang);
+    localStorage.setItem("copo-language", lang);
   }, []);
 
   const t = useCallback(

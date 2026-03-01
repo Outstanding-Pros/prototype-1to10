@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { PeopleIcon } from "@primer/octicons-react";
 import { useTranslation } from "@/lib/i18n";
 
 export default function LoginPage() {
@@ -15,7 +16,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center p-4">
       <Card className="w-full max-w-sm">
         <CardHeader className="flex flex-col items-center gap-1 text-center">
-          <span className="text-4xl">💊</span>
+          <span className="text-primary"><PeopleIcon size={40} /></span>
           <h1 className="text-2xl font-bold">{t("login.title")}</h1>
           <p className="text-muted-foreground text-sm">{t("login.subtitle")}</p>
         </CardHeader>

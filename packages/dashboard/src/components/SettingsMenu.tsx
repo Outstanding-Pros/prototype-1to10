@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Globe, Settings } from "lucide-react";
+import { GearIcon, SunIcon, MoonIcon, GlobeIcon } from "@primer/octicons-react";
 import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "@/lib/i18n";
 import type { Language } from "@/lib/i18n";
@@ -18,7 +18,7 @@ export default function SettingsMenu() {
         onClick={() => setOpen(!open)}
         className="flex items-center gap-2 w-full px-2 py-1.5 rounded-md text-[13px] transition-colors hover:bg-sidebar-accent text-sidebar-foreground"
       >
-        <Settings className="size-3.5" />
+        <GearIcon size={14} />
         <span>{t("sidebar.settings")}</span>
       </button>
 
@@ -27,19 +27,19 @@ export default function SettingsMenu() {
           {/* Theme */}
           <div>
             <p className="text-xs text-sidebar-foreground/60 mb-2 flex items-center gap-1.5">
-              {theme === "dark" ? <Moon className="size-3" /> : <Sun className="size-3" />}
+              {theme === "dark" ? <MoonIcon size={12} /> : <SunIcon size={12} />}
               {t("sidebar.accessibility")}
             </p>
             <div className="flex gap-1">
               <ThemeOption
                 label={t("sidebar.lightMode")}
-                icon={<Sun className="size-3" />}
+                icon={<SunIcon size={12} />}
                 active={theme === "light"}
                 onClick={() => setTheme("light")}
               />
               <ThemeOption
                 label={t("sidebar.darkMode")}
-                icon={<Moon className="size-3" />}
+                icon={<MoonIcon size={12} />}
                 active={theme === "dark"}
                 onClick={() => setTheme("dark")}
               />
@@ -51,7 +51,7 @@ export default function SettingsMenu() {
           {/* Language */}
           <div>
             <p className="text-xs text-sidebar-foreground/60 mb-2 flex items-center gap-1.5">
-              <Globe className="size-3" />
+              <GlobeIcon size={12} />
               {t("sidebar.language")}
             </p>
             <div className="flex gap-1">

@@ -1,64 +1,113 @@
 [
   {
-    "id": "demo-grade-a",
-    "name": "실검위젯",
-    "platform": "Android",
-    "category": "유틸리티",
-    "categorySub": "위젯",
+    "id": "demo-toronchul",
+    "name": "토론철",
+    "platform": "Web",
+    "category": "커뮤니티",
+    "categorySub": "토론",
     "region": "KR",
     "measurementGrade": "A",
     "level": 2,
     "levelName": "광고 단일 의존",
     "metrics": {
-      "dau": 2500,
-      "mau": 12000,
-      "stickiness": 0.208,
-      "monthlyRevenue": 400000,
-      "currentModels": ["admob_banner", "admob_interstitial"],
-      "ecpm": 1600,
-      "arpu": 33
+      "dau": 1200,
+      "mau": 8500,
+      "stickiness": 0.141,
+      "monthlyRevenue": 320000,
+      "currentModels": ["adsense_display"],
+      "ecpm": 2200,
+      "arpu": 38,
+      "bounceRate": 0.42,
+      "avgSessionDuration": 185,
+      "pagesPerSession": 3.2,
+      "retentionD1": 0.28,
+      "retentionD7": 0.12,
+      "monthlyChurn": 0.09
     },
     "goals": {
-      "targetRevenue": 1500000,
-      "revenueGap": 1100000
+      "targetRevenue": 2000000,
+      "revenueGap": 1680000
     },
     "diagnosis": {
-      "levelReason": "AdMob만 사용 중이고 인앱결제 시도 이력 없음",
-      "keyInsight": "ARPU가 카테고리 하위. 광고 효율은 평균이므로 수익 개선 핵심은 추가 수익 모델 도입.",
-      "potential": "현재 대비 3~5배 수익 가능"
+      "levelReason": "Google AdSense 디스플레이 광고만 운영 중이며, 유료 전환 시도 이력 없음",
+      "keyInsight": "ARPU가 카테고리 하위. 커뮤니티 참여도(Stickiness 14.1%) 대비 수익 효율이 낮아 프리미엄 멤버십 도입이 핵심.",
+      "potential": "현재 대비 4~6배 수익 가능"
+    },
+    "positioning": {
+      "tam": "₩850B",
+      "tamLabel": "한국 온라인 커뮤니티 광고 시장 (2024)",
+      "sam": "₩42B",
+      "samLabel": "토론/시사 버티컬 커뮤니티",
+      "targetSegment": "20-40대 시사·토론 참여 유저",
+      "marketStage": "growing",
+      "positionStatement": "토론 특화 커뮤니티 — 참여 기반 인게이지먼트 + AI 분석으로 차별화",
+      "competitors": [
+        { "name": "디시인사이드", "model": "광고 (CPM)", "scale": "MAU 10M+", "differentiator": "트래픽 규모, 익명성" },
+        { "name": "클리앙", "model": "광고 + 후원", "scale": "MAU 2M", "differentiator": "IT/기술 니치 커뮤니티" },
+        { "name": "Reddit", "model": "광고 + Premium", "scale": "MAU 500M (글로벌)", "differentiator": "서브레딧 생태계, UGC" }
+      ],
+      "map": {
+        "xAxis": "유저 규모",
+        "yAxis": "수익화 다변화",
+        "points": [
+          { "name": "토론철", "x": 8, "y": 12, "isSelf": true },
+          { "name": "디시인사이드", "x": 78, "y": 15 },
+          { "name": "클리앙", "x": 42, "y": 38 },
+          { "name": "Reddit", "x": 92, "y": 82 }
+        ],
+        "target": { "x": 30, "y": 55 }
+      },
+      "moats": [
+        "토론 특화 UX (찬반 구조, 논점 분리)",
+        "높은 세션 시간 (3m 05s, P75 수준)",
+        "AI 토론 분석 → 프리미엄 전환 자산"
+      ],
+      "vulnerabilities": [
+        "유저 규모 부족 (MAU 8.5K, 코호트 하위)",
+        "수익화 모델 단일 (광고 100% 의존)",
+        "브랜드 인지도 · 유입 채널 미확보"
+      ]
     },
     "recommendation": {
-      "primaryModel": "구독 (프리미엄 번들)",
-      "reason": "Stickiness 20.8%로 구독 유지율 기대 가능",
-      "bundleItems": ["광고 제거", "실시간 키워드 알림", "커스텀 위젯 테마"],
-      "priceA": 2900,
-      "priceB": 3900,
-      "sdk": "RevenueCat"
+      "primaryModel": "구독 (프리미엄 멤버십)",
+      "reason": "토론 참여 유저의 재방문율이 높아 구독 유지 기대 가능",
+      "bundleItems": ["광고 제거", "AI 토론 분석 리포트", "프리미엄 배지 & 랭킹"],
+      "priceA": 4900,
+      "priceB": 7900,
+      "sdk": "Stripe"
     },
     "simulation": {
-      "price": 2900,
+      "price": 4900,
       "scenarios": [
-        { "label": "보수적", "conversionRate": 0.015, "subscribers": 180, "subscriptionRevenue": 522000, "adRevenue": 400000, "total": 922000 },
-        { "label": "기본", "conversionRate": 0.03, "subscribers": 360, "subscriptionRevenue": 1044000, "adRevenue": 400000, "total": 1444000 },
-        { "label": "낙관적", "conversionRate": 0.05, "subscribers": 600, "subscriptionRevenue": 1740000, "adRevenue": 400000, "total": 2140000 }
+        { "label": "보수적", "conversionRate": 0.015, "subscribers": 128, "subscriptionRevenue": 627200, "adRevenue": 320000, "total": 947200 },
+        { "label": "기본", "conversionRate": 0.03, "subscribers": 255, "subscriptionRevenue": 1249500, "adRevenue": 320000, "total": 1569500 },
+        { "label": "낙관적", "conversionRate": 0.05, "subscribers": 425, "subscriptionRevenue": 2082500, "adRevenue": 320000, "total": 2402500 }
       ]
     },
     "benchmarks": {
-      "ecpmBanner": { "avg": 1.2, "unit": "USD" },
-      "ecpmInterstitial": { "avg": 5.5, "unit": "USD" },
-      "ecpmRewarded": { "avg": 12.0, "unit": "USD" },
-      "subscriptionConversion": { "low": 0.015, "median": 0.028, "high": 0.05 },
-      "subscriptionPrice": { "low": 1900, "high": 5900, "unit": "KRW/월" },
-      "churnMonthly": { "low": 0.08, "high": 0.15 },
-      "arpuAdOnly": { "low": 20, "high": 80 },
-      "arpuCombined": { "low": 80, "high": 300 },
-      "stickiness": { "low": 0.15, "high": 0.30 },
-      "retention": { "day1": { "low": 0.25, "high": 0.40 }, "day7": { "low": 0.10, "high": 0.20 } },
+      "ecpmDisplay": { "avg": 2.0, "unit": "USD" },
+      "ecpmNative": { "avg": 5.0, "unit": "USD" },
+      "subscriptionConversion": { "low": 0.015, "median": 0.03, "high": 0.06 },
+      "subscriptionPrice": { "low": 3900, "high": 9900, "unit": "KRW/월" },
+      "churnMonthly": { "low": 0.06, "high": 0.12 },
+      "arpuAdOnly": { "low": 20, "high": 90 },
+      "arpuCombined": { "low": 100, "high": 350 },
+      "stickiness": { "low": 0.10, "high": 0.25 },
+      "bounceRate": { "low": 0.30, "high": 0.55 },
+      "avgSessionDuration": { "low": 120, "high": 300 },
+      "pagesPerSession": { "low": 2.0, "high": 5.0 },
+      "retention": { "day1": { "low": 0.20, "high": 0.35 }, "day7": { "low": 0.08, "high": 0.18 } },
       "verdict": {
         "ecpm": "평균",
         "stickiness": "평균",
         "arpu": "하위",
-        "arpuAdOnly": "하위"
+        "arpuAdOnly": "하위",
+        "bounceRate": "평균",
+        "sessionDuration": "상위",
+        "pagesPerSession": "평균",
+        "retentionD1": "평균",
+        "retentionD7": "평균",
+        "churn": "평균"
       }
     },
     "roadmap": {
@@ -68,22 +117,26 @@
         {
           "week": 1,
           "theme": "준비 — 무엇을 팔 것인가",
+          "hypothesis": "커뮤니티 유저는 프리미엄 멤버십(광고 제거 + AI 분석)에 지불 의향이 있다",
+          "metric": "경쟁 서비스 3곳 유료 모델 확인 + 멤버십 스펙 확정",
           "tasks": [
-            "프리미엄 기능 후보 3개 리스트업",
-            "경쟁 앱 유료 기능 조사 (3개 앱)",
-            "프리미엄 번들 확정 + 가격 결정"
+            { "name": "프리미엄 기능 후보 3개 리스트업", "priority": "high", "startDay": 1, "endDay": 2 },
+            { "name": "경쟁 커뮤니티 유료 모델 조사 (3개 서비스)", "priority": "medium", "startDay": 2, "endDay": 5 },
+            { "name": "프리미엄 멤버십 스펙 확정 + 가격 결정", "priority": "high", "startDay": 5, "endDay": 7 }
           ],
           "hours": "3~4시간",
-          "deliverable": "프리미엄 번들 스펙 1장"
+          "deliverable": "프리미엄 멤버십 스펙 1장"
         },
         {
           "week": 2,
           "theme": "구현 — 결제 가능하게 만들기",
+          "hypothesis": "Stripe 결제 + 프리미엄 잠금을 1주 안에 구현할 수 있다",
+          "metric": "스테이징 환경 결제 플로우 테스트 통과",
           "tasks": [
-            "RevenueCat 세팅",
-            "구독 화면 UI 구현",
-            "기존 기능에 프리미엄 잠금 적용",
-            "테스트 빌드 확인"
+            { "name": "Stripe 결제 연동 세팅", "priority": "high", "startDay": 8, "endDay": 10 },
+            { "name": "프리미엄 멤버십 페이지 UI 구현", "priority": "high", "startDay": 9, "endDay": 12 },
+            { "name": "기존 기능에 프리미엄 잠금 적용", "priority": "medium", "startDay": 12, "endDay": 13 },
+            { "name": "스테이징 환경 테스트", "priority": "medium", "startDay": 13, "endDay": 14 }
           ],
           "hours": "6~8시간",
           "deliverable": "구독 결제 가능한 빌드"
@@ -91,10 +144,12 @@
         {
           "week": 3,
           "theme": "출시 — 시장에 내놓기",
+          "hypothesis": "기존 유저에게 프리미엄 알림 시 전환 퍼널에 진입할 것이다",
+          "metric": "프리미엄 페이지 방문율 > 5%",
           "tasks": [
-            "플레이스토어 업데이트",
-            "기존 유저 인앱 메시지 발송",
-            "전환율 일일 트래킹 시작"
+            { "name": "프로덕션 배포", "priority": "high", "startDay": 15, "endDay": 16 },
+            { "name": "기존 유저 이메일/인앱 알림 발송", "priority": "medium", "startDay": 16, "endDay": 18 },
+            { "name": "전환율 일일 트래킹 시작", "priority": "low", "startDay": 18, "endDay": 21 }
           ],
           "hours": "2~3시간",
           "deliverable": "7일간 전환율 데이터"
@@ -102,116 +157,67 @@
         {
           "week": 4,
           "theme": "판단 — 데이터로 결정하기",
+          "hypothesis": "7일 전환율이 카테고리 벤치마크(1.5%) 이상을 달성할 것이다",
+          "metric": "전환율 ≥ 1.5%",
           "tasks": [
-            "7일 전환율 확인",
-            "Go/Adjust/Redesign 판단"
+            { "name": "7일 전환율 확인", "priority": "high", "startDay": 22, "endDay": 25 },
+            { "name": "Go/Adjust/Redesign 판단", "priority": "high", "startDay": 25, "endDay": 28 }
           ],
           "hours": "1~2시간",
           "deliverable": "Week 4 판단 리포트",
           "goNoGo": {
             "go": "전환율 ≥ 1.5% → 가격 A/B 테스트",
             "adjust": "전환율 0.5~1.5% → 번들 변경 또는 가격 인하",
-            "redesign": "전환율 < 0.5% → 번들 가치 재검토"
+            "redesign": "전환율 < 0.5% → 멤버십 가치 재검토"
           }
         }
       ]
-    }
-  },
-  {
-    "id": "demo-grade-b",
-    "name": "하루루틴",
-    "platform": "Android",
-    "category": "라이프스타일",
-    "categorySub": "습관",
-    "region": "KR",
-    "measurementGrade": "B",
-    "level": 3,
-    "levelName": "복합 수익 초기",
-    "metrics": {
-      "dau": 800,
-      "mau": 5200,
-      "stickiness": 0.154,
-      "monthlyRevenue": 180000,
-      "currentModels": ["admob_banner", "admob_interstitial", "iap_theme"],
-      "ecpm": 1200,
-      "arpu": 35
     },
-    "goals": {
-      "targetRevenue": 500000,
-      "revenueGap": 320000
-    },
-    "diagnosis": {
-      "levelReason": "인앱결제 시도 중이나 전환율이 카테고리 평균 이하",
-      "keyInsight": "인앱결제를 시도했지만 전환율이 부족. GA4 이벤트 데이터 없이는 병목 파악 불가.",
-      "potential": "현재 대비 2~3배 수익 가능"
-    },
-    "measurementGaps": [
-      { "item": "Firebase Analytics GA4 이벤트", "guide": "GA4 이벤트 트래킹 세팅", "time": "30분" },
-      { "item": "구매 전환 퍼널", "guide": "퍼널 이벤트 설정", "time": "15분" }
-    ],
-    "recommendation": {
-      "primaryModel": "일회성 인앱결제 (프리미엄 테마팩)",
-      "reason": "Stickiness 15.4%로 구독 이탈 우려 — 일회성 결제 적합",
-      "priceRange": "₩3,900~₩6,900",
-      "confirmed": false
-    },
-    "benchmarks": {
-      "iapBuyerRate": { "low": 0.03, "median": 0.055, "high": 0.10 },
-      "iapAvgPrice": { "low": 4000, "high": 12000 },
-      "ecpmBanner": { "avg": 1.0, "unit": "USD" },
-      "ecpmInterstitial": { "avg": 4.5, "unit": "USD" },
-      "arpuAdOnly": { "low": 15, "high": 60 },
-      "arpuCombined": { "low": 60, "high": 250 },
-      "stickiness": { "low": 0.12, "high": 0.25 },
-      "verdict": {
-        "ecpm": "평균",
-        "stickiness": "하위",
-        "arpu": "하위"
-      }
-    }
-  },
-  {
-    "id": "demo-grade-c",
-    "name": "단어장 퀴즈",
-    "platform": "Android",
-    "category": "교육",
-    "categorySub": "어학",
-    "region": "KR",
-    "measurementGrade": "C",
-    "level": 1,
-    "levelName": "수익 모델 없음",
-    "metrics": {
-      "dau": null,
-      "mau": null,
-      "stickiness": null,
-      "monthlyRevenue": 0,
-      "currentModels": [],
-      "ecpm": null,
-      "arpu": null,
-      "downloads": 3000
-    },
-    "goals": {
-      "targetRevenue": 300000,
-      "revenueGap": 300000
-    },
-    "measurementGaps": [
-      { "item": "Firebase Analytics", "guide": "Firebase 프로젝트 생성 + Analytics 세팅", "time": "30분~1시간" },
-      { "item": "AdMob", "guide": "AdMob 계정 생성 + 배너 광고 삽입", "time": "1시간" }
-    ],
-    "setupRoadmap": {
-      "phase1": { "days": "Day 1~3", "title": "측정 인프라 설치", "tasks": ["Firebase Analytics 세팅", "AdMob 배너 1개 삽입"] },
-      "phase2": { "days": "Day 4~10", "title": "데이터 축적", "tasks": ["매일 3분 체크: Firebase Console > 실시간"] },
-      "phase3": { "days": "Day 11~14", "title": "첫 데이터 리뷰", "tasks": ["DAU/MAU/Stickiness 확인", "본 진단 활성화"] }
-    },
-    "benchmarks": {
-      "subscriptionConversion": { "low": 0.02, "median": 0.04, "high": 0.07 },
-      "subscriptionPrice": { "low": 2900, "high": 7900, "unit": "KRW/월" },
-      "ecpmBanner": { "avg": 1.5, "unit": "USD" },
-      "ecpmInterstitial": { "avg": 6.0, "unit": "USD" },
-      "ecpmRewarded": { "avg": 15.0, "unit": "USD" },
-      "arpuAdOnly": { "low": 25, "high": 100 },
-      "arpuCombined": { "low": 100, "high": 400 },
-      "note": "교육 앱은 콘텐츠 잠금(paywall) 모델 적합도 높음"
+    "strategy": {
+      "northStar": "MAU 50K + MRR ₩5M",
+      "timeframe": "12개월",
+      "phases": [
+        {
+          "quarter": "Q1 2026",
+          "theme": "수익 모델 다변화",
+          "goals": [
+            "프리미엄 멤버십 런칭 및 결제 플로우 구축",
+            "구독 CVR 3% 달성 (벤치마크 기준)",
+            "광고 + 구독 하이브리드 수익 구조 전환"
+          ],
+          "status": "active"
+        },
+        {
+          "quarter": "Q2 2026",
+          "theme": "유저 그로스 & 리텐션 강화",
+          "goals": [
+            "MAU 8.5K → 20K (SEO + 콘텐츠 마케팅)",
+            "D7 Retention 12% → 18% (P75 수준)",
+            "프리미엄 멤버 온보딩 최적화"
+          ],
+          "status": "upcoming"
+        },
+        {
+          "quarter": "Q3 2026",
+          "theme": "프로덕트-마켓 핏 검증",
+          "goals": [
+            "월간 Churn Rate 6% 이하 달성",
+            "NPS 40+ 확보",
+            "프리미엄 번들 가격 A/B 테스트 완료"
+          ],
+          "status": "upcoming"
+        },
+        {
+          "quarter": "Q4 2026",
+          "theme": "스케일업 준비",
+          "goals": [
+            "MAU 50K 달성",
+            "MRR ₩5M 돌파 (North Star)",
+            "그로스 채널 다변화 (퍼포먼스 마케팅 시작)"
+          ],
+          "status": "upcoming"
+        }
+      ]
     }
   }
 ]

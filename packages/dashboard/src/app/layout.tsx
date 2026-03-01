@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "앱 수익 처방전 — App Revenue Prescription",
-  description: "당신의 앱, 수익화 처방을 받아보세요",
+  title: "Copo — Co-Product Owner",
+  description: "당신의 서비스, 수익화 처방을 받아보세요",
 };
 
 export default function RootLayout({
