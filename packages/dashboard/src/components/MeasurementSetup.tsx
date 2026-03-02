@@ -43,7 +43,7 @@ export default function MeasurementSetup({ grade, gaps }: MeasurementSetupProps)
         <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
           <ToolsIcon size={14} />
         </span>
-        <h2 className="text-sm font-semibold">{t("measurement.title")}</h2>
+        <h2 className="text-base font-semibold">{t("measurement.title")}</h2>
         <Badge variant={info.variant} className="ml-1 text-xs">
           Grade {grade} · {info.label}
         </Badge>
