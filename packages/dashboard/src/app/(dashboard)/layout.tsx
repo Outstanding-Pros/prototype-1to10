@@ -13,6 +13,7 @@ import {
   PeopleIcon,
   StarFillIcon,
   CheckCircleFillIcon,
+  ChevronRightIcon,
 } from "@primer/octicons-react";
 import { getCustomer } from "@/lib/customer";
 import { Badge } from "@/components/ui/badge";
@@ -25,15 +26,15 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import SettingsMenu from "@/components/SettingsMenu";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation, useLanguage } from "@/lib/i18n";
 
 const navItems = [
-  { href: "/profile", icon: GlobeIcon, key: "nav.appProfile" as const },
-  { href: "/level", icon: PulseIcon, key: "nav.level" as const },
+  { href: "/analytics", icon: GlobeIcon, key: "nav.appProfile" as const },
+  { href: "/market", icon: PulseIcon, key: "nav.level" as const },
   { href: "/benchmark", icon: GraphIcon, key: "nav.benchmark" as const },
-  { href: "/simulation", icon: ZapIcon, key: "nav.simulation" as const },
-  { href: "/roadmap", icon: ProjectRoadmapIcon, key: "nav.roadmap" as const },
-  { href: "/strategy", icon: MilestoneIcon, key: "nav.strategy" as const },
+  { href: "/business-model", icon: ZapIcon, key: "nav.simulation" as const },
+  { href: "/sprint", icon: ProjectRoadmapIcon, key: "nav.roadmap" as const },
+  { href: "/roadmap", icon: MilestoneIcon, key: "nav.strategy" as const },
 ];
 
 export default function DashboardLayout({
@@ -44,7 +45,9 @@ export default function DashboardLayout({
   const pathname = usePathname();
   const c = getCustomer();
   const { t } = useTranslation();
+  const { language } = useLanguage();
   const [offerOpen, setOfferOpen] = useState(false);
+  const [serviceInfoOpen, setServiceInfoOpen] = useState(false);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -62,12 +65,19 @@ export default function DashboardLayout({
 
         <div className="px-4"><Separator className="bg-sidebar-border" /></div>
 
-        {/* App info */}
-        <div className="px-4 py-3">
-          <p className="text-sm font-medium text-sidebar-accent-foreground">
-            {c.name}
-          </p>
-          <div className="flex items-center gap-2 mt-1">
+        {/* App info — clickable to open service info modal */}
+        <button
+          type="button"
+          onClick={() => setServiceInfoOpen(true)}
+          className="mx-2 px-2 py-2.5 rounded-md text-left transition-colors hover:bg-sidebar-accent/50 cursor-pointer group"
+        >
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-medium text-sidebar-accent-foreground">
+              {c.name}
+            </p>
+            <ChevronRightIcon size={12} className="text-sidebar-foreground/30 group-hover:text-sidebar-foreground/50 transition-colors" />
+          </div>
+          <div className="flex items-center gap-2 mt-0.5">
             <Badge
               variant="outline"
               className="text-xs py-0 border-sidebar-border text-sidebar-foreground/50"
@@ -75,10 +85,10 @@ export default function DashboardLayout({
               {c.platform}
             </Badge>
             <span className="text-xs text-sidebar-foreground/30">
-              {t("sidebar.expiry")} 2026.03.29
+              {c.category}
             </span>
           </div>
-        </div>
+        </button>
 
         <div className="px-4"><Separator className="bg-sidebar-border" /></div>
 
@@ -139,7 +149,7 @@ export default function DashboardLayout({
 
       {/* Offer modal */}
       <Dialog open={offerOpen} onOpenChange={setOfferOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-xl">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <StarFillIcon size={16} className="text-primary" />
@@ -176,6 +186,100 @@ export default function DashboardLayout({
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Service info modal */}
+      <Dialog open={serviceInfoOpen} onOpenChange={setServiceInfoOpen}>
+        <DialogContent className="sm:max-w-xl">
+          <DialogHeader>
+            <DialogTitle>{t("serviceInfo.title")}</DialogTitle>
+          </DialogHeader>
+
+          <div className="space-y-5">
+            {/* Subscription */}
+            <div className="rounded-lg border p-4 space-y-3">
+              <p className="text-xs font-medium text-muted-foreground">{t("serviceInfo.subscription")}</p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Badge className="text-xs">{t("serviceInfo.freeTrial")}</Badge>
+                  <span className="text-sm font-medium">{t("serviceInfo.plan.free")}</span>
+                </div>
+                <div className="text-right">
+                  <p className="text-xs text-muted-foreground">{t("serviceInfo.expiresAt")}</p>
+                  <p className="text-sm font-semibold tabular-nums">2026.03.29</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Service Info */}
+            <div className="rounded-lg border p-4 space-y-3">
+              <p className="text-xs font-medium text-muted-foreground">{t("serviceInfo.basicInfo")}</p>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                <InfoField label={t("serviceInfo.name")} value={c.name} />
+                <InfoField label={t("serviceInfo.platform")} value={c.platform} />
+                <InfoField label={t("serviceInfo.category")} value={`${c.category} > ${c.categorySub}`} />
+                <InfoField label={t("serviceInfo.region")} value={c.region} />
+                <InfoField label={t("serviceInfo.website")} value="toronchul.com" link />
+              </div>
+            </div>
+
+            {/* Analytics Tools */}
+            <div className="rounded-lg border p-4 space-y-3">
+              <p className="text-xs font-medium text-muted-foreground">{t("serviceInfo.analytics")}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {["Google Analytics", "Microsoft Clarity"].map((tool) => (
+                  <Badge key={tool} variant="outline" className="text-xs font-normal">
+                    {tool}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            {/* Revenue Status */}
+            <div className="rounded-lg border p-4 space-y-3">
+              <p className="text-xs font-medium text-muted-foreground">{t("serviceInfo.revenue")}</p>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                <div>
+                  <p className="text-xs text-muted-foreground mb-0.5">{t("serviceInfo.revenueModel")}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {c.metrics.currentModels.map((m) => (
+                      <Badge key={m} variant="secondary" className="text-xs font-normal">
+                        {language === "ko"
+                          ? { adsense_display: "디스플레이 광고", admob_banner: "배너", admob_interstitial: "전면", iap_theme: "인앱(테마)" }[m] ?? m
+                          : { adsense_display: "Display Ads", admob_banner: "Banner", admob_interstitial: "Interstitial", iap_theme: "IAP (Theme)" }[m] ?? m}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                <InfoField
+                  label={t("serviceInfo.monthlyRevenue")}
+                  value={`₩${c.metrics.monthlyRevenue.toLocaleString("ko-KR")}`}
+                />
+                <InfoField
+                  label={t("serviceInfo.targetRevenue")}
+                  value={`₩${c.goals.targetRevenue.toLocaleString("ko-KR")}`}
+                />
+                <InfoField
+                  label={t("serviceInfo.measurementGrade")}
+                  value={`Grade ${c.measurementGrade}`}
+                />
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}
+
+function InfoField({ label, value, link }: { label: string; value: string; link?: boolean }) {
+  return (
+    <div>
+      <p className="text-xs text-muted-foreground mb-0.5">{label}</p>
+      {link ? (
+        <p className="text-sm font-medium text-primary">{value}</p>
+      ) : (
+        <p className="text-sm font-medium">{value}</p>
+      )}
     </div>
   );
 }

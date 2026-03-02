@@ -24,7 +24,7 @@ const translations = {
   "sidebar.darkMode": { ko: "다크", en: "Dark" },
 
   // AppProfile
-  "appProfile.title": { ko: "프로덕트 애널리틱스", en: "Product Analytics" },
+  "appProfile.title": { ko: "애널리틱스", en: "Analytics" },
   "appProfile.product": { ko: "프로덕트", en: "Product" },
   "appProfile.vertical": { ko: "버티컬", en: "Vertical" },
   "appProfile.monetizationModel": { ko: "수익화 모델", en: "Monetization Model" },
@@ -43,7 +43,7 @@ const translations = {
   "appProfile.benchmarkRange": { ko: "벤치마크 범위", en: "Benchmark Range" },
 
   // LevelDiagnosis
-  "level.title": { ko: "수익화 성숙도", en: "Monetization Maturity" },
+  "level.title": { ko: "마켓", en: "Market" },
   "level.1.name": { ko: "수익 모델 없음", en: "No Revenue Model" },
   "level.1.task": { ko: "첫 수익 모델 선택", en: "Choose First Revenue Model" },
   "level.2.name": { ko: "광고 단일 의존", en: "Ad-only Dependency" },
@@ -84,13 +84,20 @@ const translations = {
   "level.vulnerabilities": { ko: "리스크 요인", en: "Risk Factors" },
 
   // BenchmarkComparison
-  "benchmark.title": { ko: "코호트 벤치마크", en: "Cohort Benchmark" },
+  "benchmark.title": { ko: "벤치마크", en: "Benchmark" },
   "benchmark.cohort": { ko: "코호트", en: "Cohort" },
   "benchmark.metric": { ko: "메트릭", en: "Metric" },
   "benchmark.yours": { ko: "Your", en: "Yours" },
   "benchmark.p50": { ko: "P50", en: "P50" },
   "benchmark.p75": { ko: "P75", en: "P75" },
   "benchmark.percentile": { ko: "퍼센타일", en: "Percentile" },
+
+  // Benchmark header tooltip descriptions
+  "benchmark.metric.desc": { ko: "비교 대상 지표명", en: "The metric being compared" },
+  "benchmark.yours.desc": { ko: "현재 서비스의 실측 값", en: "Your service's actual value" },
+  "benchmark.p50.desc": { ko: "동일 코호트 중앙값 (상위 50%)", en: "Cohort median — top 50%" },
+  "benchmark.p75.desc": { ko: "동일 코호트 상위 25% 기준값", en: "Cohort top 25% threshold" },
+  "benchmark.percentile.desc": { ko: "코호트 내 상대적 위치 판정", en: "Your relative position within the cohort" },
   "benchmark.verdict.low": { ko: "Below Avg", en: "Below Avg" },
   "benchmark.verdict.avg": { ko: "On Par", en: "On Par" },
   "benchmark.verdict.high": { ko: "Above Avg", en: "Above Avg" },
@@ -120,6 +127,18 @@ const translations = {
   "benchmark.row.retentionD7": { ko: "D7 Retention", en: "D7 Retention" },
   "benchmark.row.churn": { ko: "Monthly Churn Rate", en: "Monthly Churn Rate" },
 
+  // Benchmark row tooltip descriptions
+  "benchmark.row.dauMau.desc": { ko: "DAU/MAU — 유저의 서비스 재방문 빈도를 나타내는 핵심 인게이지먼트 지표", en: "DAU/MAU — key engagement metric showing how often users revisit" },
+  "benchmark.row.bounceRate.desc": { ko: "첫 페이지만 보고 이탈한 세션 비율. 낮을수록 좋음", en: "Percentage of single-page sessions. Lower is better" },
+  "benchmark.row.sessionDuration.desc": { ko: "유저가 한 번 방문 시 평균 체류 시간", en: "Average time a user spends per visit" },
+  "benchmark.row.pagesPerSession.desc": { ko: "한 세션 동안 조회한 평균 페이지 수", en: "Average pages viewed per session" },
+  "benchmark.row.ecpm.desc": { ko: "1,000회 노출당 수익 (Effective Cost Per Mille)", en: "Revenue per 1,000 ad impressions" },
+  "benchmark.row.arpu.desc": { ko: "전체 수익 모델 합산 유저당 평균 매출", en: "Average revenue per user across all revenue models" },
+  "benchmark.row.arpuAdOnly.desc": { ko: "광고 수익만 기준으로 한 유저당 평균 매출", en: "Average revenue per user from ads only" },
+  "benchmark.row.retentionD1.desc": { ko: "첫 방문 다음 날 재방문한 유저 비율", en: "Users who return 1 day after first visit" },
+  "benchmark.row.retentionD7.desc": { ko: "첫 방문 7일 후 재방문한 유저 비율", en: "Users who return 7 days after first visit" },
+  "benchmark.row.churn.desc": { ko: "한 달 동안 서비스를 떠난 유저 비율. 낮을수록 좋음", en: "Users lost per month. Lower is better" },
+
   // Benchmark data sources
   "benchmark.source": { ko: "데이터 소스", en: "Data Sources" },
   "benchmark.source.traffic": { ko: "SimilarWeb 코호트 벤치마크", en: "SimilarWeb Cohort Benchmark" },
@@ -127,7 +146,7 @@ const translations = {
   "benchmark.source.retention": { ko: "ThinkingData 코호트 리텐션", en: "ThinkingData Cohort Retention" },
 
   // RevenueSimulation
-  "simulation.title": { ko: "매출 포캐스팅", en: "Revenue Forecast" },
+  "simulation.title": { ko: "비즈니스 모델", en: "Business Model" },
   "simulation.recommendedModel": { ko: "추천 수익화 모델", en: "Recommended Model" },
   "simulation.pricePoint": { ko: "가격 포인트", en: "Price Point" },
   "simulation.perMonth": { ko: "/월", en: "/mo" },
@@ -155,11 +174,12 @@ const translations = {
   },
 
   // Roadmap
-  "roadmap.title": { ko: "스프린트 실행 로드맵", en: "Sprint Execution Roadmap" },
+  "roadmap.title": { ko: "스프린트", en: "Sprint" },
   "roadmap.current": { ko: "현재", en: "Current" },
   "roadmap.deliverable": { ko: "산출물:", en: "Deliverable:" },
   "roadmap.criteria": { ko: "판단 기준", en: "Decision Criteria" },
   "roadmap.sprint": { ko: "스프린트", en: "Sprint" },
+  "roadmap.weekUnit": { ko: "주차", en: "Week" },
   "roadmap.timeline": { ko: "타임라인", en: "Timeline" },
   "roadmap.priority.high": { ko: "높음", en: "High" },
   "roadmap.priority.medium": { ko: "보통", en: "Medium" },
@@ -178,6 +198,27 @@ const translations = {
   "strategy.status.active": { ko: "진행 중", en: "Active" },
   "strategy.status.upcoming": { ko: "예정", en: "Upcoming" },
   "strategy.status.completed": { ko: "완료", en: "Done" },
+  "strategy.executiveSummary": { ko: "전략 요약", en: "Executive Summary" },
+  "strategy.growthProjection": { ko: "성장 전망", en: "Growth Projection" },
+  "strategy.mau": { ko: "MAU", en: "MAU" },
+  "strategy.mrr": { ko: "MRR", en: "MRR" },
+  "strategy.actual": { ko: "실적", en: "Actual" },
+  "strategy.projected": { ko: "전망", en: "Projected" },
+  "strategy.goalLine": { ko: "목표", en: "Goal" },
+  "strategy.marketTrends": { ko: "시장 트렌드", en: "Market Trends" },
+  "strategy.impact.positive": { ko: "호재", en: "Positive" },
+  "strategy.impact.negative": { ko: "악재", en: "Negative" },
+  "strategy.impact.neutral": { ko: "중립", en: "Neutral" },
+  "strategy.relevance": { ko: "시사점", en: "Relevance" },
+  "strategy.horizon": { ko: "호라이즌", en: "Horizon" },
+  "strategy.rationale": { ko: "전략적 근거 (WHY)", en: "Strategic Rationale (WHY)" },
+  "strategy.kpis": { ko: "KPI", en: "KPIs" },
+  "strategy.kpi.metric": { ko: "지표", en: "Metric" },
+  "strategy.kpi.current": { ko: "현재", en: "Current" },
+  "strategy.kpi.target": { ko: "목표", en: "Target" },
+  "strategy.risks": { ko: "리스크 & 대응", en: "Risks & Mitigation" },
+  "strategy.risk.mitigation": { ko: "대응", en: "Mitigation" },
+  "strategy.successCriteria": { ko: "성공 기준", en: "Success Criteria" },
 
   // MeasurementSetup
   "measurement.title": { ko: "측정 준비도", en: "Measurement Readiness" },
@@ -239,6 +280,25 @@ const translations = {
     ko: "현재 무료 체험 중 · 만료 2026.03.29",
     en: "Free trial active · Expires 2026.03.29",
   },
+
+  // Service Info modal
+  "serviceInfo.title": { ko: "서비스 정보", en: "Service Info" },
+  "serviceInfo.subscription": { ko: "구독 정보", en: "Subscription" },
+  "serviceInfo.freeTrial": { ko: "무료 체험", en: "Free Trial" },
+  "serviceInfo.plan.free": { ko: "Free Plan", en: "Free Plan" },
+  "serviceInfo.expiresAt": { ko: "만료일", en: "Expires" },
+  "serviceInfo.basicInfo": { ko: "기본 정보", en: "Basic Info" },
+  "serviceInfo.name": { ko: "서비스명", en: "Service Name" },
+  "serviceInfo.platform": { ko: "플랫폼", en: "Platform" },
+  "serviceInfo.category": { ko: "카테고리", en: "Category" },
+  "serviceInfo.region": { ko: "지역", en: "Region" },
+  "serviceInfo.website": { ko: "웹사이트", en: "Website" },
+  "serviceInfo.analytics": { ko: "연동된 분석 도구", en: "Connected Analytics" },
+  "serviceInfo.revenue": { ko: "수익 현황", en: "Revenue Status" },
+  "serviceInfo.revenueModel": { ko: "수익 모델", en: "Revenue Model" },
+  "serviceInfo.monthlyRevenue": { ko: "월 매출", en: "Monthly Revenue" },
+  "serviceInfo.targetRevenue": { ko: "목표 매출", en: "Target Revenue" },
+  "serviceInfo.measurementGrade": { ko: "측정 준비도", en: "Measurement Grade" },
 
   // Login
   "login.title": { ko: "Copo", en: "Copo" },
@@ -313,6 +373,34 @@ const translations = {
   "onboarding.step4.rev.over1000": { ko: "1000만원+", en: "₩10M+" },
   "onboarding.step4.targetRevenue": { ko: "목표 월 수익 (원)", en: "Target Monthly Revenue (₩)" },
   "onboarding.step4.targetPlaceholder": { ko: "예: 5000000", en: "e.g. 5000000" },
+
+  // Analytics Dashboard
+  "analytics.period.7d": { ko: "최근 7일", en: "Last 7 days" },
+  "analytics.period.14d": { ko: "최근 14일", en: "Last 14 days" },
+  "analytics.period.30d": { ko: "최근 30일", en: "Last 30 days" },
+
+  // KPI Cards
+  "analytics.kpi.dau": { ko: "DAU", en: "DAU" },
+  "analytics.kpi.mau": { ko: "MAU", en: "MAU" },
+  "analytics.kpi.mrr": { ko: "MRR", en: "MRR" },
+  "analytics.kpi.arpu": { ko: "ARPU", en: "ARPU" },
+  "analytics.kpi.stickiness": { ko: "Stickiness", en: "Stickiness" },
+  "analytics.kpi.retentionD1": { ko: "D1 리텐션", en: "D1 Retention" },
+
+  // KPI Tooltip Descriptions
+  "analytics.kpi.dau.desc": { ko: "일간 활성 사용자 수 (Daily Active Users)", en: "Daily Active Users — unique users per day" },
+  "analytics.kpi.mau.desc": { ko: "월간 활성 사용자 수 (Monthly Active Users)", en: "Monthly Active Users — unique users per month" },
+  "analytics.kpi.mrr.desc": { ko: "월간 반복 매출 (Monthly Recurring Revenue)", en: "Monthly Recurring Revenue — total recurring revenue per month" },
+  "analytics.kpi.arpu.desc": { ko: "유저당 평균 매출 (Average Revenue Per User)", en: "Average Revenue Per User — revenue divided by active users" },
+  "analytics.kpi.stickiness.desc": { ko: "DAU/MAU 비율 — 유저가 얼마나 자주 재방문하는지 측정", en: "DAU/MAU ratio — measures how often users return" },
+  "analytics.kpi.retentionD1.desc": { ko: "첫 방문 다음 날 재방문한 유저 비율", en: "Percentage of users who return the day after first visit" },
+
+  // Chart Sections
+  "analytics.chart.engagement": { ko: "인게이지먼트", en: "Engagement" },
+  "analytics.chart.revenue": { ko: "매출", en: "Revenue" },
+  "analytics.chart.unitEconomics": { ko: "유닛 이코노믹스", en: "Unit Economics" },
+  "analytics.chart.retention": { ko: "리텐션", en: "Retention" },
+  "analytics.chart.userHealth": { ko: "유저 헬스", en: "User Health" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

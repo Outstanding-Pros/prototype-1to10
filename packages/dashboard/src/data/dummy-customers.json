@@ -176,6 +176,50 @@
     "strategy": {
       "northStar": "MAU 50K + MRR ₩5M",
       "timeframe": "12개월",
+      "executiveSummary": "광고 단일 수익 구조에서 구독 하이브리드 모델로 전환하고, 12개월 내 MAU 50K · MRR ₩5M을 달성하는 3-Horizon 성장 전략",
+      "keyInsight": "커뮤니티 Stickiness(14.1%)는 구독 전환의 강력한 선행 지표 — 수익화 다변화가 최우선 과제",
+      "marketContext": {
+        "trends": [
+          {
+            "trend": "커뮤니티 구독 모델 확산",
+            "detail": "Reddit Premium, Discord Nitro 등 커뮤니티 플랫폼의 구독 수익이 전년 대비 35% 성장",
+            "impact": "positive",
+            "relevance": "프리미엄 멤버십 도입의 시장 검증 근거"
+          },
+          {
+            "trend": "AI 기반 콘텐츠 분석 수요 증가",
+            "detail": "GPT 기반 요약·분석 도구 사용률이 커뮤니티 유저 사이에서 급증 (YoY +120%)",
+            "impact": "positive",
+            "relevance": "AI 토론 분석 리포트의 프리미엄 가치 강화"
+          },
+          {
+            "trend": "디스플레이 광고 eCPM 하락 추세",
+            "detail": "쿠키리스 전환과 광고 차단 확산으로 디스플레이 eCPM이 연간 8-12% 감소",
+            "impact": "negative",
+            "relevance": "광고 단일 의존 리스크 — 수익 다변화 시급"
+          },
+          {
+            "trend": "시사·토론 콘텐츠 관심도 상승",
+            "detail": "선거 시즌 및 사회 이슈 증가로 토론 플랫폼 트래픽 20-30% 상승 전망",
+            "impact": "neutral",
+            "relevance": "단기 트래픽 호재이나 지속성은 이벤트 의존적"
+          }
+        ]
+      },
+      "projection": [
+        { "month": "Mar", "mau": 8500, "mrr": 320000, "projected": false },
+        { "month": "Apr", "mau": 9200, "mrr": 480000, "projected": false },
+        { "month": "May", "mau": 10500, "mrr": 720000, "projected": false },
+        { "month": "Jun", "mau": 12000, "mrr": 950000, "projected": true },
+        { "month": "Jul", "mau": 15000, "mrr": 1350000, "projected": true },
+        { "month": "Aug", "mau": 18000, "mrr": 1800000, "projected": true },
+        { "month": "Sep", "mau": 22000, "mrr": 2300000, "projected": true },
+        { "month": "Oct", "mau": 28000, "mrr": 2900000, "projected": true },
+        { "month": "Nov", "mau": 35000, "mrr": 3600000, "projected": true },
+        { "month": "Dec", "mau": 40000, "mrr": 4200000, "projected": true },
+        { "month": "Jan", "mau": 45000, "mrr": 4700000, "projected": true },
+        { "month": "Feb", "mau": 50000, "mrr": 5000000, "projected": true }
+      ],
       "phases": [
         {
           "quarter": "Q1 2026",
@@ -185,7 +229,19 @@
             "구독 CVR 3% 달성 (벤치마크 기준)",
             "광고 + 구독 하이브리드 수익 구조 전환"
           ],
-          "status": "active"
+          "status": "active",
+          "horizon": "H1",
+          "rationale": "ARPU가 카테고리 하위(₩38)이며 광고 eCPM 하락 추세 — 구독 수익 추가가 가장 빠른 수익 레버리지",
+          "kpis": [
+            { "metric": "구독 CVR", "current": "0%", "target": "3%" },
+            { "metric": "MRR", "current": "₩320K", "target": "₩950K" },
+            { "metric": "ARPU", "current": "₩38", "target": "₩95" }
+          ],
+          "risks": [
+            { "risk": "유저 결제 저항", "mitigation": "프리트라이얼 7일 무료 제공", "severity": "high" },
+            { "risk": "Stripe 연동 지연", "mitigation": "MVP 기능 범위 최소화", "severity": "medium" }
+          ],
+          "successCriteria": "구독 CVR 1.5% 이상 + MRR ₩600K 이상 달성 시 Phase 2 진입"
         },
         {
           "quarter": "Q2 2026",
@@ -195,7 +251,19 @@
             "D7 Retention 12% → 18% (P75 수준)",
             "프리미엄 멤버 온보딩 최적화"
           ],
-          "status": "upcoming"
+          "status": "upcoming",
+          "horizon": "H1",
+          "rationale": "수익 모델 확보 후 유저 볼륨이 다음 성장 병목 — SEO와 콘텐츠로 오가닉 유입 확대",
+          "kpis": [
+            { "metric": "MAU", "current": "8.5K", "target": "20K" },
+            { "metric": "D7 Retention", "current": "12%", "target": "18%" },
+            { "metric": "오가닉 유입 비율", "current": "45%", "target": "65%" }
+          ],
+          "risks": [
+            { "risk": "SEO 효과 지연", "mitigation": "콘텐츠 마케팅 병행 (주 3회 토론 하이라이트)", "severity": "medium" },
+            { "risk": "신규 유저 리텐션 저조", "mitigation": "온보딩 퍼널 A/B 테스트", "severity": "high" }
+          ],
+          "successCriteria": "MAU 15K 이상 + D7 Retention 15% 이상 달성 시 Phase 3 진입"
         },
         {
           "quarter": "Q3 2026",
@@ -205,7 +273,19 @@
             "NPS 40+ 확보",
             "프리미엄 번들 가격 A/B 테스트 완료"
           ],
-          "status": "upcoming"
+          "status": "upcoming",
+          "horizon": "H2",
+          "rationale": "유저 볼륨 확보 후 PMF 지표(Churn, NPS)로 제품-시장 적합성 검증 — 스케일업 전 필수 관문",
+          "kpis": [
+            { "metric": "Monthly Churn", "current": "9%", "target": "< 6%" },
+            { "metric": "NPS", "current": "N/A", "target": "40+" },
+            { "metric": "MRR", "current": "₩1.8M", "target": "₩3M" }
+          ],
+          "risks": [
+            { "risk": "Churn 감소 정체", "mitigation": "이탈 예측 모델 + 윈백 캠페인", "severity": "high" },
+            { "risk": "가격 민감도 과대", "mitigation": "연간 구독 할인 옵션 추가", "severity": "low" }
+          ],
+          "successCriteria": "Churn < 8% + NPS 30 이상 달성 시 스케일업 Phase 진입"
         },
         {
           "quarter": "Q4 2026",
@@ -215,7 +295,19 @@
             "MRR ₩5M 돌파 (North Star)",
             "그로스 채널 다변화 (퍼포먼스 마케팅 시작)"
           ],
-          "status": "upcoming"
+          "status": "upcoming",
+          "horizon": "H3",
+          "rationale": "PMF 검증 완료 후 퍼포먼스 마케팅으로 유저 획득 가속화 — LTV:CAC 비율 기반 스케일링",
+          "kpis": [
+            { "metric": "MAU", "current": "28K", "target": "50K" },
+            { "metric": "MRR", "current": "₩3M", "target": "₩5M" },
+            { "metric": "LTV:CAC", "current": "N/A", "target": "> 3:1" }
+          ],
+          "risks": [
+            { "risk": "CAC 상승", "mitigation": "오가닉 채널 병행으로 블렌디드 CAC 관리", "severity": "medium" },
+            { "risk": "서버 인프라 병목", "mitigation": "트래픽 기반 오토스케일링 사전 구축", "severity": "low" }
+          ],
+          "successCriteria": "MAU 50K + MRR ₩5M 달성 = North Star 완료"
         }
       ]
     }

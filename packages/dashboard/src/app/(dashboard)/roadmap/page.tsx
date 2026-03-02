@@ -1,14 +1,36 @@
 "use client";
 
-import { getCustomer, type Task } from "@/lib/customer";
-import Roadmap from "@/components/Roadmap";
+import { getCustomer } from "@/lib/customer";
+import Strategy from "@/components/Strategy";
 
-export default function RoadmapPage() {
+export default function StrategyPage() {
   const c = getCustomer();
 
-  if (!c.roadmap) return null;
+  if (!c.strategy) return null;
+
+  const s = c.strategy;
 
   return (
-    <Roadmap currentWeek={c.roadmap.currentWeek} weeks={c.roadmap.weeks as { week: number; theme: string; tasks: Task[]; hours: string; deliverable: string; goNoGo?: { go: string; adjust: string; redesign: string } }[]} />
+    <Strategy
+      northStar={s.northStar}
+      timeframe={s.timeframe}
+      executiveSummary={s.executiveSummary}
+      keyInsight={s.keyInsight}
+      marketContext={s.marketContext as { trends: { trend: string; detail: string; impact: "positive" | "negative" | "neutral"; relevance: string }[] }}
+      projection={s.projection as { month: string; mau: number; mrr: number; projected: boolean }[]}
+      phases={
+        s.phases as {
+          quarter: string;
+          theme: string;
+          goals: string[];
+          status: "active" | "upcoming" | "completed";
+          horizon?: string;
+          rationale?: string;
+          kpis?: { metric: string; current: string; target: string }[];
+          risks?: { risk: string; mitigation: string; severity: "high" | "medium" | "low" }[];
+          successCriteria?: string;
+        }[]
+      }
+    />
   );
 }
