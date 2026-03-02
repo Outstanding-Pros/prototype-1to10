@@ -34,17 +34,35 @@
       "potential": "현재 대비 4~6배 수익 가능"
     },
     "positioning": {
-      "tam": "₩850B",
-      "tamLabel": "한국 온라인 커뮤니티 광고 시장 (2024)",
-      "sam": "₩42B",
-      "samLabel": "토론/시사 버티컬 커뮤니티",
+      "tam": {
+        "revenue": "₩850B",
+        "revenueLabel": "한국 온라인 커뮤니티 광고 시장 (2024)",
+        "users": "35M",
+        "usersLabel": "한국 온라인 커뮤니티 전체 이용자"
+      },
+      "sam": {
+        "revenue": "₩42B",
+        "revenueLabel": "토론/시사 버티컬 커뮤니티",
+        "users": "1.8M",
+        "usersLabel": "토론/시사 커뮤니티 활성 유저"
+      },
+      "som": {
+        "revenue": "₩19M",
+        "revenueLabel": "구독 전환 기대 매출 (Year 1, 기본 시나리오)",
+        "users": "8.5K",
+        "usersLabel": "현재 MAU — 즉시 획득 가능 유저"
+      },
       "targetSegment": "20-40대 시사·토론 참여 유저",
       "marketStage": "growing",
       "positionStatement": "토론 특화 커뮤니티 — 참여 기반 인게이지먼트 + AI 분석으로 차별화",
       "competitors": [
         { "name": "디시인사이드", "model": "광고 (CPM)", "scale": "MAU 10M+", "differentiator": "트래픽 규모, 익명성" },
         { "name": "클리앙", "model": "광고 + 후원", "scale": "MAU 2M", "differentiator": "IT/기술 니치 커뮤니티" },
-        { "name": "Reddit", "model": "광고 + Premium", "scale": "MAU 500M (글로벌)", "differentiator": "서브레딧 생태계, UGC" }
+        { "name": "Reddit", "model": "광고 + Premium", "scale": "MAU 500M (글로벌)", "differentiator": "서브레딧 생태계, UGC" },
+        { "name": "썰파", "model": "광고", "scale": "DL 10K+ (비활성)", "differentiator": "게임화 토론, 레벨업 시스템" },
+        { "name": "토로너스", "model": "프리미엄 (IAP)", "scale": "극소규모 (1인 개발)", "differentiator": "음성+텍스트 토론, 랭킹" },
+        { "name": "BELLRUNS", "model": "광고 (AdSense)", "scale": "소규모 (웹+앱)", "differentiator": "밸런스 게임, 통계 기반 의견 표현" },
+        { "name": "반반투표", "model": "미공개", "scale": "소규모 (스타트업)", "differentiator": "실시간 이슈 투표 + 토론 피드" }
       ],
       "map": {
         "xAxis": "유저 규모",
@@ -53,7 +71,11 @@
           { "name": "토론철", "x": 8, "y": 12, "isSelf": true },
           { "name": "디시인사이드", "x": 78, "y": 15 },
           { "name": "클리앙", "x": 42, "y": 38 },
-          { "name": "Reddit", "x": 92, "y": 82 }
+          { "name": "Reddit", "x": 92, "y": 82 },
+          { "name": "썰파", "x": 14, "y": 10 },
+          { "name": "토로너스", "x": 3, "y": 22 },
+          { "name": "BELLRUNS", "x": 20, "y": 25 },
+          { "name": "반반투표", "x": 5, "y": 5 }
         ],
         "target": { "x": 30, "y": 55 }
       },
@@ -82,6 +104,49 @@
         { "label": "보수적", "conversionRate": 0.015, "subscribers": 128, "subscriptionRevenue": 627200, "adRevenue": 320000, "total": 947200 },
         { "label": "기본", "conversionRate": 0.03, "subscribers": 255, "subscriptionRevenue": 1249500, "adRevenue": 320000, "total": 1569500 },
         { "label": "낙관적", "conversionRate": 0.05, "subscribers": 425, "subscriptionRevenue": 2082500, "adRevenue": 320000, "total": 2402500 }
+      ],
+      "costStructure": {
+        "fixedCosts": [
+          { "item": "Stripe 결제 수수료", "monthlyCost": 45000 },
+          { "item": "클라우드 서버 (Vercel Pro)", "monthlyCost": 25000 },
+          { "item": "AI API (OpenAI)", "monthlyCost": 80000 },
+          { "item": "도메인 & DNS", "monthlyCost": 3000 },
+          { "item": "모니터링 (Sentry)", "monthlyCost": 15000 }
+        ],
+        "variableCostPerUser": 12,
+        "cashflow": [
+          { "month": "Mar", "revenue": 320000, "cost": 270000, "net": 50000 },
+          { "month": "Apr", "revenue": 480000, "cost": 280000, "net": 200000 },
+          { "month": "May", "revenue": 720000, "cost": 295000, "net": 425000 },
+          { "month": "Jun", "revenue": 950000, "cost": 312000, "net": 638000 },
+          { "month": "Jul", "revenue": 1350000, "cost": 348000, "net": 1002000 },
+          { "month": "Aug", "revenue": 1800000, "cost": 384000, "net": 1416000 },
+          { "month": "Sep", "revenue": 2300000, "cost": 432000, "net": 1868000 },
+          { "month": "Oct", "revenue": 2900000, "cost": 504000, "net": 2396000 },
+          { "month": "Nov", "revenue": 3600000, "cost": 588000, "net": 3012000 },
+          { "month": "Dec", "revenue": 4200000, "cost": 648000, "net": 3552000 },
+          { "month": "Jan", "revenue": 4700000, "cost": 708000, "net": 3992000 },
+          { "month": "Feb", "revenue": 5000000, "cost": 768000, "net": 4232000 }
+        ]
+      },
+      "conversionRationale": {
+        "benchmarkSource": "Lenny's Newsletter SaaS/Community Conversion Benchmarks (2024)",
+        "factors": [
+          { "factor": "높은 세션 시간 (3m 05s, P75)", "effect": "positive", "detail": "유저가 콘텐츠에 깊이 관여 — 유료 가치 인지 가능성 높음" },
+          { "factor": "Stickiness 14.1% (카테고리 평균)", "effect": "positive", "detail": "재방문 빈도가 구독 유지 선행 지표로 작용" },
+          { "factor": "MAU 8.5K (소규모)", "effect": "negative", "detail": "절대 유저 수 부족 — 전환 모수가 작아 MRR 상한 제약" },
+          { "factor": "유료 전환 시도 이력 없음", "effect": "negative", "detail": "유저의 지불 의향 미검증 — 초기 전환율 보수적 추정 필요" },
+          { "factor": "토론 특화 UX 차별점", "effect": "positive", "detail": "찬반 구조·논점 분리 등 대체재 부재 → 프리미엄 전환 동기 강화" }
+        ]
+      },
+      "requiredFeatures": [
+        { "feature": "Stripe 결제 연동", "priority": "high", "effort": "3일", "status": "needed" },
+        { "feature": "프리미엄 멤버십 페이지", "priority": "high", "effort": "2일", "status": "needed" },
+        { "feature": "광고 제거 토글 (프리미엄)", "priority": "high", "effort": "1일", "status": "needed" },
+        { "feature": "AI 토론 분석 리포트", "priority": "medium", "effort": "5일", "status": "planned" },
+        { "feature": "프리미엄 배지 & 랭킹", "priority": "medium", "effort": "2일", "status": "planned" },
+        { "feature": "기존 콘텐츠 프리미엄 잠금", "priority": "medium", "effort": "1일", "status": "ready" },
+        { "feature": "구독 관리 (해지/변경)", "priority": "low", "effort": "2일", "status": "planned" }
       ]
     },
     "benchmarks": {
@@ -119,6 +184,11 @@
           "theme": "준비 — 무엇을 팔 것인가",
           "hypothesis": "커뮤니티 유저는 프리미엄 멤버십(광고 제거 + AI 분석)에 지불 의향이 있다",
           "metric": "경쟁 서비스 3곳 유료 모델 확인 + 멤버십 스펙 확정",
+          "revenueImpact": {
+            "scenario": "기본",
+            "expectedMrr": 1569500,
+            "description": "₩4,900/월 구독 모델 확정 → 기본 시나리오(CVR 3%) 달성 시 MRR ₩1,569,500 가능"
+          },
           "tasks": [
             { "name": "프리미엄 기능 후보 3개 리스트업", "priority": "high", "startDay": 1, "endDay": 2 },
             { "name": "경쟁 커뮤니티 유료 모델 조사 (3개 서비스)", "priority": "medium", "startDay": 2, "endDay": 5 },
@@ -132,6 +202,11 @@
           "theme": "구현 — 결제 가능하게 만들기",
           "hypothesis": "Stripe 결제 + 프리미엄 잠금을 1주 안에 구현할 수 있다",
           "metric": "스테이징 환경 결제 플로우 테스트 통과",
+          "revenueImpact": {
+            "scenario": "보수적",
+            "expectedMrr": 947200,
+            "description": "결제 인프라 완료 → 보수적 시나리오(CVR 1.5%, 128명) 기준 MRR ₩947,200 달성 가능 상태"
+          },
           "tasks": [
             { "name": "Stripe 결제 연동 세팅", "priority": "high", "startDay": 8, "endDay": 10 },
             { "name": "프리미엄 멤버십 페이지 UI 구현", "priority": "high", "startDay": 9, "endDay": 12 },
@@ -146,6 +221,11 @@
           "theme": "출시 — 시장에 내놓기",
           "hypothesis": "기존 유저에게 프리미엄 알림 시 전환 퍼널에 진입할 것이다",
           "metric": "프리미엄 페이지 방문율 > 5%",
+          "revenueImpact": {
+            "scenario": "기본",
+            "expectedMrr": 1569500,
+            "description": "전환 퍼널 가동 시작 → 방문율 5% 달성 시 기본 시나리오(CVR 3%) MRR ₩1,569,500 경로 진입"
+          },
           "tasks": [
             { "name": "프로덕션 배포", "priority": "high", "startDay": 15, "endDay": 16 },
             { "name": "기존 유저 이메일/인앱 알림 발송", "priority": "medium", "startDay": 16, "endDay": 18 },
@@ -159,6 +239,11 @@
           "theme": "판단 — 데이터로 결정하기",
           "hypothesis": "7일 전환율이 카테고리 벤치마크(1.5%) 이상을 달성할 것이다",
           "metric": "전환율 ≥ 1.5%",
+          "revenueImpact": {
+            "scenario": "보수적",
+            "expectedMrr": 947200,
+            "description": "CVR 1.5% 달성 확인 시 → 보수적 시나리오 MRR ₩947,200 검증 완료, 목표 매출(₩2M) 대비 47% 달성"
+          },
           "tasks": [
             { "name": "7일 전환율 확인", "priority": "high", "startDay": 22, "endDay": 25 },
             { "name": "Go/Adjust/Redesign 판단", "priority": "high", "startDay": 25, "endDay": 28 }

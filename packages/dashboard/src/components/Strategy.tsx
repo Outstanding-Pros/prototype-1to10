@@ -172,15 +172,13 @@ export default function Strategy({
     <section className="space-y-6">
       {/* ── Section 1: Header + Executive Summary ── */}
       <div>
-        <div className="flex items-center gap-2 mb-1">
+        <div className="flex items-center gap-2">
           <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
             <MilestoneIcon size={14} />
           </span>
           <h2 className="text-base font-semibold">{t("strategy.title")}</h2>
         </div>
-        {keyInsight && (
-          <p className="text-xs text-muted-foreground ml-7">{keyInsight}</p>
-        )}
+        <p className="text-sm text-muted-foreground mt-1 ml-7">{t("strategy.summary")}</p>
       </div>
 
       {/* North Star banner */}
@@ -196,12 +194,13 @@ export default function Strategy({
       </div>
 
       {/* Executive summary */}
-      {executiveSummary && (
-        <div className="rounded-lg bg-muted/30 px-4 py-3">
-          <p className="text-xs font-medium text-muted-foreground mb-1">
+      {(executiveSummary || keyInsight) && (
+        <div className="rounded-lg bg-muted/30 px-4 py-3 space-y-1">
+          <p className="text-xs font-medium text-muted-foreground">
             {t("strategy.executiveSummary")}
           </p>
-          <p className="text-sm text-foreground/80">{executiveSummary}</p>
+          {executiveSummary && <p className="text-sm text-foreground/80">{executiveSummary}</p>}
+          {keyInsight && <p className="text-sm text-foreground/70">{keyInsight}</p>}
         </div>
       )}
 

@@ -54,11 +54,14 @@ export default function AppProfile(p: AppProfileProps) {
   return (
     <section className="space-y-6">
       {/* Section header */}
-      <div className="flex items-center gap-2">
-        <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
-          <GlobeIcon size={14} />
-        </span>
-        <h2 className="text-sm font-semibold">{t("appProfile.title")}</h2>
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
+            <GlobeIcon size={14} />
+          </span>
+          <h2 className="text-base font-semibold">{t("appProfile.title")}</h2>
+        </div>
+        <p className="text-sm text-muted-foreground mt-1 ml-7">{t("appProfile.summary")}</p>
       </div>
 
       {/* Product Info */}
@@ -143,7 +146,7 @@ export default function AppProfile(p: AppProfileProps) {
                       ? "bg-green-500"
                       : attainment >= 50
                       ? "bg-amber-500"
-                      : "bg-primary"
+                      : "bg-destructive"
                   }`}
                   style={{ width: `${Math.min(attainment, 100)}%` }}
                 />

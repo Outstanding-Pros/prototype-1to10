@@ -1,7 +1,7 @@
 "use client";
 
 import { getCustomer } from "@/lib/customer";
-import RevenueSimulation from "@/components/RevenueSimulation";
+import RevenueSimulation, { type RevenueSimulationProps } from "@/components/RevenueSimulation";
 
 export default function SimulationPage() {
   const c = getCustomer();
@@ -17,6 +17,9 @@ export default function SimulationPage() {
       scenarios={c.simulation.scenarios}
       targetRevenue={c.goals.targetRevenue}
       mau={c.metrics.mau ?? 0}
+      costStructure={c.simulation.costStructure as RevenueSimulationProps["costStructure"]}
+      conversionRationale={c.simulation.conversionRationale as RevenueSimulationProps["conversionRationale"]}
+      requiredFeatures={c.simulation.requiredFeatures as RevenueSimulationProps["requiredFeatures"]}
     />
   );
 }

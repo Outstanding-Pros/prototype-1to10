@@ -34,11 +34,17 @@ interface PositioningMapData {
   target?: { x: number; y: number };
 }
 
+interface MarketDimension {
+  revenue: string;
+  revenueLabel: string;
+  users: string;
+  usersLabel: string;
+}
+
 interface Positioning {
-  tam: string;
-  tamLabel: string;
-  sam: string;
-  samLabel: string;
+  tam: MarketDimension;
+  sam: MarketDimension;
+  som?: MarketDimension;
   targetSegment: string;
   marketStage: string;
   positionStatement: string;
@@ -57,7 +63,7 @@ interface LevelDiagnosisProps {
 }
 
 const stageColors: Record<string, string> = {
-  emerging: "bg-blue-500/15 text-blue-600 border-blue-500/20",
+  emerging: "bg-primary/15 text-primary border-primary/20",
   growing: "bg-green-500/15 text-green-600 border-green-500/20",
   mature: "bg-amber-500/15 text-amber-600 border-amber-500/20",
   declining: "bg-red-500/15 text-red-600 border-red-500/20",
@@ -83,11 +89,14 @@ export default function LevelDiagnosis({
   return (
     <section className="space-y-6">
       {/* Section header */}
-      <div className="flex items-center gap-2">
-        <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
-          <PulseIcon size={14} />
-        </span>
-        <h2 className="text-sm font-semibold">{t("level.title")}</h2>
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
+            <PulseIcon size={14} />
+          </span>
+          <h2 className="text-base font-semibold">{t("level.title")}</h2>
+        </div>
+        <p className="text-sm text-muted-foreground mt-1 ml-7">{t("level.summary")}</p>
       </div>
 
       {/* Level display */}
@@ -148,18 +157,46 @@ export default function LevelDiagnosis({
                 {positioning.positionStatement}
               </p>
 
-              {/* TAM / SAM / Segment / Stage */}
-              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">{t("level.positioning.tam")}</p>
-                  <p className="text-lg font-bold tabular-nums">{positioning.tam}</p>
-                  <p className="text-xs text-muted-foreground">{positioning.tamLabel}</p>
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">{t("level.positioning.sam")}</p>
-                  <p className="text-lg font-bold tabular-nums">{positioning.sam}</p>
-                  <p className="text-xs text-muted-foreground">{positioning.samLabel}</p>
-                </div>
+              {/* TAM / SAM / SOM — dual dimension table */}
+              {(() => {
+                const tiers = [
+                  { key: "tam" as const, label: t("level.positioning.tam"), data: positioning.tam },
+                  { key: "sam" as const, label: t("level.positioning.sam"), data: positioning.sam },
+                  ...(positioning.som ? [{ key: "som" as const, label: t("level.positioning.som"), data: positioning.som }] : []),
+                ];
+                return (
+                  <div className="rounded-md border overflow-hidden">
+                    {/* Header */}
+                    <div className="grid grid-cols-3 bg-muted/40 border-b text-xs text-muted-foreground font-medium">
+                      <div className="px-3 py-1.5" />
+                      <div className="px-3 py-1.5 text-center">{t("level.positioning.revenueShare")}</div>
+                      <div className="px-3 py-1.5 text-center">{t("level.positioning.userShare")}</div>
+                    </div>
+                    {/* Rows */}
+                    {tiers.map((tier, i) => (
+                      <div
+                        key={tier.key}
+                        className={`grid grid-cols-3 ${i < tiers.length - 1 ? "border-b" : ""}`}
+                      >
+                        <div className="px-3 py-2 flex items-center">
+                          <span className="text-xs font-semibold">{tier.label}</span>
+                        </div>
+                        <div className="px-3 py-2 text-center">
+                          <p className="text-sm font-bold tabular-nums">{tier.data.revenue}</p>
+                          <p className="text-xs text-muted-foreground">{tier.data.revenueLabel}</p>
+                        </div>
+                        <div className="px-3 py-2 text-center">
+                          <p className="text-sm font-bold tabular-nums">{tier.data.users}</p>
+                          <p className="text-xs text-muted-foreground">{tier.data.usersLabel}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
+
+              {/* Segment / Stage */}
+              <div className="grid grid-cols-2 gap-x-6">
                 <div>
                   <p className="text-xs text-muted-foreground mb-0.5">{t("level.positioning.segment")}</p>
                   <p className="text-sm font-medium">{positioning.targetSegment}</p>
@@ -261,7 +298,7 @@ function PositioningMap({ data, selfName }: { data: PositioningMapData; selfName
           <div className="absolute -left-8 top-0 bottom-0 flex items-center">
             <span
               className="text-xs text-muted-foreground whitespace-nowrap"
-              style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+              style={{ writingMode: "vertical-rl" }}
             >
               {data.yAxis}
             </span>

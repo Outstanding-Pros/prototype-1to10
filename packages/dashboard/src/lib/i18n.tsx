@@ -25,6 +25,10 @@ const translations = {
 
   // AppProfile
   "appProfile.title": { ko: "애널리틱스", en: "Analytics" },
+  "appProfile.summary": {
+    ko: "현재 서비스의 핵심 지표를 한눈에 보여줍니다. 유저가 얼마나 자주 오는지, 수익은 어떤 구조인지 파악하는 출발점이에요.",
+    en: "A snapshot of your service's key metrics. This is the starting point to understand how often users visit and how your revenue is structured.",
+  },
   "appProfile.product": { ko: "프로덕트", en: "Product" },
   "appProfile.vertical": { ko: "버티컬", en: "Vertical" },
   "appProfile.monetizationModel": { ko: "수익화 모델", en: "Monetization Model" },
@@ -44,6 +48,10 @@ const translations = {
 
   // LevelDiagnosis
   "level.title": { ko: "마켓", en: "Market" },
+  "level.summary": {
+    ko: "같은 카테고리 서비스들과 비교해 우리 서비스의 수익화 성숙도가 어디쯤인지 보여줍니다. 현재 레벨에서 다음 단계로 가려면 무엇을 해야 하는지 확인하세요.",
+    en: "Shows where your monetization maturity stands compared to similar services. See what you need to do to move from your current level to the next.",
+  },
   "level.1.name": { ko: "수익 모델 없음", en: "No Revenue Model" },
   "level.1.task": { ko: "첫 수익 모델 선택", en: "Choose First Revenue Model" },
   "level.2.name": { ko: "광고 단일 의존", en: "Ad-only Dependency" },
@@ -62,6 +70,9 @@ const translations = {
   "level.positioning": { ko: "마켓 포지셔닝", en: "Market Positioning" },
   "level.positioning.tam": { ko: "TAM", en: "TAM" },
   "level.positioning.sam": { ko: "SAM", en: "SAM" },
+  "level.positioning.som": { ko: "SOM", en: "SOM" },
+  "level.positioning.revenueShare": { ko: "시장 점유율", en: "Market Share" },
+  "level.positioning.userShare": { ko: "사용자 점유율", en: "User Share" },
   "level.positioning.segment": { ko: "타겟 세그먼트", en: "Target Segment" },
   "level.positioning.stage": { ko: "마켓 스테이지", en: "Market Stage" },
   "level.positioning.statement": { ko: "포지셔닝 요약", en: "Positioning" },
@@ -85,6 +96,10 @@ const translations = {
 
   // BenchmarkComparison
   "benchmark.title": { ko: "벤치마크", en: "Benchmark" },
+  "benchmark.summary": {
+    ko: "같은 규모·카테고리 서비스들의 중앙값(P50)과 상위 25%(P75)를 기준으로, 우리 지표가 어느 위치에 있는지 비교합니다. '하위'로 나온 지표가 가장 먼저 개선해야 할 포인트예요.",
+    en: "Compares your metrics against the median (P50) and top 25% (P75) of services in the same size and category. Metrics marked 'Below Avg' are your top priorities for improvement.",
+  },
   "benchmark.cohort": { ko: "코호트", en: "Cohort" },
   "benchmark.metric": { ko: "메트릭", en: "Metric" },
   "benchmark.yours": { ko: "Your", en: "Yours" },
@@ -147,6 +162,10 @@ const translations = {
 
   // RevenueSimulation
   "simulation.title": { ko: "비즈니스 모델", en: "Business Model" },
+  "simulation.summary": {
+    ko: "데이터를 기반으로 추천하는 수익 모델과, 보수적·기본·낙관적 세 가지 시나리오별 예상 매출입니다. 비용 구조와 필요 기능까지 함께 확인해서 실행 가능성을 판단하세요.",
+    en: "A data-driven revenue model recommendation with projected MRR across three scenarios. Review the cost structure and required features to assess feasibility.",
+  },
   "simulation.recommendedModel": { ko: "추천 수익화 모델", en: "Recommended Model" },
   "simulation.pricePoint": { ko: "가격 포인트", en: "Price Point" },
   "simulation.perMonth": { ko: "/월", en: "/mo" },
@@ -173,6 +192,39 @@ const translations = {
     en: "※ Estimates based on cohort benchmarks; actual performance may vary",
   },
 
+  // RevenueSimulation — Conversion Rationale
+  "simulation.conversionRationale": { ko: "전환율 근거", en: "Conversion Rationale" },
+  "simulation.benchmarkSource": { ko: "벤치마크 출처", en: "Benchmark Source" },
+  "simulation.factor": { ko: "영향 요인", en: "Factors" },
+
+  // RevenueSimulation — Cost Structure & Cashflow
+  "simulation.costStructure": { ko: "비용 구조 & 현금흐름", en: "Cost Structure & Cashflow" },
+  "simulation.fixedCost": { ko: "고정 비용", en: "Fixed Costs" },
+  "simulation.variableCost": { ko: "유저당 변동 비용", en: "Variable Cost / User" },
+  "simulation.cashflow": { ko: "12개월 현금흐름 전망", en: "12-Month Cashflow Forecast" },
+  "simulation.revenue": { ko: "매출", en: "Revenue" },
+  "simulation.cost": { ko: "비용", en: "Cost" },
+  "simulation.net": { ko: "순이익", en: "Net" },
+
+  // RevenueSimulation — Required Features
+  "simulation.requiredFeatures": { ko: "필요 기능", en: "Required Features" },
+  "simulation.feature": { ko: "기능", en: "Feature" },
+  "simulation.effort": { ko: "공수", en: "Effort" },
+  "simulation.status.ready": { ko: "준비됨", en: "Ready" },
+  "simulation.status.needed": { ko: "필요", en: "Needed" },
+  "simulation.status.planned": { ko: "계획됨", en: "Planned" },
+
+  // Roadmap — Summary
+  "roadmap.summary": {
+    ko: "4주 단위 스프린트로 가설을 세우고, 실행하고, 데이터로 검증합니다. 각 스프린트가 매출에 어떤 영향을 주는지도 함께 보여줘요.",
+    en: "Build, ship, and validate hypotheses in 4-week sprints. Each sprint shows its expected revenue impact so you can prioritize what matters.",
+  },
+
+  // Roadmap — Revenue Impact
+  "roadmap.revenueImpact": { ko: "매출 기대효과", en: "Revenue Impact" },
+  "roadmap.expectedMrr": { ko: "기대 MRR", en: "Expected MRR" },
+  "roadmap.linkedScenario": { ko: "연동 시나리오", en: "Linked Scenario" },
+
   // Roadmap
   "roadmap.title": { ko: "스프린트", en: "Sprint" },
   "roadmap.current": { ko: "현재", en: "Current" },
@@ -190,6 +242,10 @@ const translations = {
 
   // Strategy (Macro Roadmap)
   "strategy.title": { ko: "로드맵", en: "Roadmap" },
+  "strategy.summary": {
+    ko: "12개월 성장 전략의 큰 그림입니다. 분기별로 무엇에 집중하고, 어떤 KPI를 달성해야 다음 단계로 넘어갈 수 있는지 확인하세요.",
+    en: "The big picture of your 12-month growth strategy. See what to focus on each quarter and which KPIs unlock the next phase.",
+  },
   "strategy.northStar": { ko: "North Star", en: "North Star" },
   "strategy.timeframe": { ko: "타임프레임", en: "Timeframe" },
   "strategy.phase": { ko: "Phase", en: "Phase" },
@@ -294,6 +350,8 @@ const translations = {
   "serviceInfo.region": { ko: "지역", en: "Region" },
   "serviceInfo.website": { ko: "웹사이트", en: "Website" },
   "serviceInfo.analytics": { ko: "연동된 분석 도구", en: "Connected Analytics" },
+  "serviceInfo.disconnect": { ko: "연결 해제", en: "Disconnect" },
+  "serviceInfo.connected": { ko: "연결됨", en: "Connected" },
   "serviceInfo.revenue": { ko: "수익 현황", en: "Revenue Status" },
   "serviceInfo.revenueModel": { ko: "수익 모델", en: "Revenue Model" },
   "serviceInfo.monthlyRevenue": { ko: "월 매출", en: "Monthly Revenue" },

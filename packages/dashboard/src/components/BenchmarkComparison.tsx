@@ -90,7 +90,7 @@ export default function BenchmarkComparison({
 
   return (
     <section className="space-y-6">
-      {/* Section header + key insight subtitle */}
+      {/* Section header */}
       <div>
         <div className="flex items-center gap-2">
           <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
@@ -98,8 +98,14 @@ export default function BenchmarkComparison({
           </span>
           <h2 className="text-base font-semibold">{t("benchmark.title")}</h2>
         </div>
-        <p className="text-sm text-muted-foreground mt-1 ml-7">{insight}</p>
-        <p className="text-sm text-muted-foreground mt-0.5 ml-7">
+        <p className="text-sm text-muted-foreground mt-1 ml-7">{t("benchmark.summary")}</p>
+      </div>
+
+      {/* Key insight callout */}
+      <div className="rounded-lg bg-muted/40 px-3.5 py-2.5 space-y-1">
+        <p className="text-xs font-medium text-muted-foreground">{t("benchmark.keyInsight")}</p>
+        <p className="text-sm text-foreground/80">{insight}</p>
+        <p className="text-sm text-muted-foreground">
           {t("benchmark.sameMAU")}{" "}
           <span className="font-semibold text-foreground">{potentialRevenue}</span> — {t("benchmark.currentVs")}{" "}
           <span className="font-semibold text-foreground">{potentialMultiple}</span> {t("benchmark.revenuePotential")}

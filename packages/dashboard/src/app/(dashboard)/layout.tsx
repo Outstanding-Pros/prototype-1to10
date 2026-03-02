@@ -225,11 +225,20 @@ export default function DashboardLayout({
             {/* Analytics Tools */}
             <div className="rounded-lg border p-4 space-y-3">
               <p className="text-xs font-medium text-muted-foreground">{t("serviceInfo.analytics")}</p>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="space-y-2">
                 {["Google Analytics", "Microsoft Clarity"].map((tool) => (
-                  <Badge key={tool} variant="outline" className="text-xs font-normal">
-                    {tool}
-                  </Badge>
+                  <div key={tool} className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="size-2 rounded-full bg-green-500" />
+                      <span className="text-sm">{tool}</span>
+                      <Badge variant="outline" className="text-xs font-normal text-green-600 border-green-600/20 bg-green-600/5">
+                        {t("serviceInfo.connected")}
+                      </Badge>
+                    </div>
+                    <Button variant="ghost" size="sm" className="text-xs text-destructive hover:text-destructive hover:bg-destructive/10 h-7 px-2">
+                      {t("serviceInfo.disconnect")}
+                    </Button>
+                  </div>
                 ))}
               </div>
             </div>
