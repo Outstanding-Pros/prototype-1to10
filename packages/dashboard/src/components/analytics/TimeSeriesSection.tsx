@@ -105,7 +105,7 @@ function ChartPanel({
   return (
     <div className="rounded-lg border bg-card overflow-hidden">
       <div className="px-4 py-2.5 border-b bg-muted/30">
-        <span className="text-xs font-medium text-muted-foreground">{title}</span>
+        <span className="text-sm font-medium text-muted-foreground">{title}</span>
       </div>
       <div className="p-4">{children}</div>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import { GlobeIcon } from "@primer/octicons-react";
+import { PulseIcon } from "@primer/octicons-react";
 import { useTranslation } from "@/lib/i18n";
 
 interface BenchmarkRange {
@@ -57,7 +57,7 @@ export default function AppProfile(p: AppProfileProps) {
       <div>
         <div className="flex items-center gap-2">
           <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
-            <GlobeIcon size={14} />
+            <PulseIcon size={14} />
           </span>
           <h2 className="text-base font-semibold">{t("appProfile.title")}</h2>
         </div>
@@ -91,7 +91,7 @@ export default function AppProfile(p: AppProfileProps) {
       {/* Engagement Section */}
       <div className="rounded-lg border overflow-hidden">
         <div className="px-3 py-2 border-b bg-muted/30">
-          <span className="text-xs font-medium text-muted-foreground">{t("appProfile.engagement")}</span>
+          <span className="text-sm font-medium text-muted-foreground">{t("appProfile.engagement")}</span>
         </div>
         <div className="p-4">
           <div className="grid grid-cols-3 gap-6">
@@ -122,7 +122,7 @@ export default function AppProfile(p: AppProfileProps) {
       {/* Revenue Performance Section */}
       <div className="rounded-lg border overflow-hidden">
         <div className="px-3 py-2 border-b bg-muted/30">
-          <span className="text-xs font-medium text-muted-foreground">{t("appProfile.revenuePerformance")}</span>
+          <span className="text-sm font-medium text-muted-foreground">{t("appProfile.revenuePerformance")}</span>
         </div>
         <div className="p-4 space-y-5">
           {/* MRR with attainment bar */}
@@ -151,7 +151,7 @@ export default function AppProfile(p: AppProfileProps) {
                   style={{ width: `${Math.min(attainment, 100)}%` }}
                 />
               </div>
-              <div className="flex justify-between text-xs">
+              <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">
                   {t("appProfile.attainment")} {attainment}%
                 </span>

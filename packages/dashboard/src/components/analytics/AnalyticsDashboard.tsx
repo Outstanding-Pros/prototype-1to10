@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { GlobeIcon } from "@primer/octicons-react";
+import { PulseIcon } from "@primer/octicons-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Select,
@@ -52,7 +52,7 @@ export default function AnalyticsDashboard({ customer }: AnalyticsDashboardProps
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
-              <GlobeIcon size={14} />
+              <PulseIcon size={14} />
             </span>
             <h2 className="text-base font-semibold">{t("appProfile.title")}</h2>
           </div>

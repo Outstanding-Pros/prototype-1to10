@@ -103,7 +103,7 @@ export default function BenchmarkComparison({
 
       {/* Key insight callout */}
       <div className="rounded-lg bg-muted/40 px-3.5 py-2.5 space-y-1">
-        <p className="text-xs font-medium text-muted-foreground">{t("benchmark.keyInsight")}</p>
+        <p className="text-sm font-medium text-muted-foreground">{t("benchmark.keyInsight")}</p>
         <p className="text-sm text-foreground/80">{insight}</p>
         <p className="text-sm text-muted-foreground">
           {t("benchmark.sameMAU")}{" "}
@@ -147,7 +147,7 @@ export default function BenchmarkComparison({
                 {/* Section divider row */}
                 <TableRow className="bg-muted/30 hover:bg-muted/30">
                   <TableCell colSpan={5} className="py-1.5 px-3">
-                    <span className="text-xs font-medium text-muted-foreground">
+                    <span className="text-sm font-medium text-muted-foreground">
                       {t(group.section)}
                     </span>
                   </TableCell>

@@ -19,6 +19,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  ReferenceLine,
 } from "recharts";
 
 /* ------------------------------------------------------------------ */
@@ -257,13 +258,13 @@ export default function RevenueSimulation({
       {/* ── Conversion Rationale (replaces old Formula section) ── */}
       {conversionRationale && (
         <div className="rounded-lg bg-muted/50 p-3.5 space-y-3">
-          <p className="text-xs font-medium text-muted-foreground">
+          <p className="text-sm font-medium text-muted-foreground">
             {t("simulation.conversionRationale")}
           </p>
 
           <div className="space-y-0.5">
             <p className="text-xs text-muted-foreground">{t("simulation.benchmarkSource")}</p>
-            <p className="text-xs text-foreground/80">{conversionRationale.benchmarkSource}</p>
+            <p className="text-sm text-foreground/80">{conversionRationale.benchmarkSource}</p>
           </div>
 
           <div className="space-y-2">
@@ -275,7 +276,7 @@ export default function RevenueSimulation({
                   }`}
                 />
                 <div>
-                  <p className="text-xs font-medium text-foreground/90">{f.factor}</p>
+                  <p className="text-sm font-medium text-foreground/90">{f.factor}</p>
                   <p className="text-xs text-muted-foreground">{f.detail}</p>
                 </div>
               </div>
@@ -292,7 +293,7 @@ export default function RevenueSimulation({
       {costStructure && (
         <div className="rounded-lg border">
           <div className="px-3 py-2 border-b bg-muted/30">
-            <span className="text-xs font-medium text-muted-foreground">
+            <span className="text-sm font-medium text-muted-foreground">
               {t("simulation.costStructure")}
             </span>
           </div>
@@ -300,7 +301,7 @@ export default function RevenueSimulation({
           <div className="p-3.5 space-y-4">
             {/* Fixed costs table */}
             <div>
-              <p className="text-xs font-medium text-muted-foreground mb-2">
+              <p className="text-sm font-medium text-muted-foreground mb-2">
                 {t("simulation.fixedCost")}
               </p>
               <Table>
@@ -317,17 +318,17 @@ export default function RevenueSimulation({
                 <TableBody>
                   {costStructure.fixedCosts.map((fc, i) => (
                     <TableRow key={i}>
-                      <TableCell className="text-xs py-1.5">{fc.item}</TableCell>
-                      <TableCell className="text-xs text-right tabular-nums py-1.5">
+                      <TableCell className="text-sm py-1.5">{fc.item}</TableCell>
+                      <TableCell className="text-sm text-right tabular-nums py-1.5">
                         {won(fc.monthlyCost)}
                       </TableCell>
                     </TableRow>
                   ))}
                   <TableRow>
-                    <TableCell className="text-xs font-medium py-1.5">
+                    <TableCell className="text-sm font-medium py-1.5">
                       {language === "ko" ? "합계" : "Total"}
                     </TableCell>
-                    <TableCell className="text-xs text-right tabular-nums font-medium py-1.5">
+                    <TableCell className="text-sm text-right tabular-nums font-medium py-1.5">
                       {won(costStructure.fixedCosts.reduce((s, c) => s + c.monthlyCost, 0))}
                     </TableCell>
                   </TableRow>
@@ -336,7 +337,7 @@ export default function RevenueSimulation({
             </div>
 
             {/* Variable cost per user */}
-            <div className="flex justify-between text-xs">
+            <div className="flex justify-between text-sm">
               <span className="text-muted-foreground">{t("simulation.variableCost")}</span>
               <span className="tabular-nums font-medium">{won(costStructure.variableCostPerUser)}</span>
             </div>
@@ -345,7 +346,7 @@ export default function RevenueSimulation({
 
             {/* Cashflow chart */}
             <div>
-              <p className="text-xs font-medium text-muted-foreground mb-2">
+              <p className="text-sm font-medium text-muted-foreground mb-2">
                 {t("simulation.cashflow")}
               </p>
               <ResponsiveContainer width="100%" height={180}>
@@ -375,6 +376,34 @@ export default function RevenueSimulation({
                     axisLine={false}
                   />
                   <Tooltip content={<CashflowTooltip />} />
+
+                  {/* Break-even line (net = 0) */}
+                  <ReferenceLine
+                    y={0}
+                    stroke="var(--muted-foreground)"
+                    strokeDasharray="4 4"
+                    strokeWidth={1}
+                    label={{
+                      value: t("simulation.breakeven"),
+                      position: "insideTopLeft",
+                      fontSize: 10,
+                      fill: "var(--muted-foreground)",
+                    }}
+                  />
+
+                  {/* Target revenue line */}
+                  <ReferenceLine
+                    y={targetRevenue}
+                    stroke="var(--chart-2)"
+                    strokeDasharray="6 3"
+                    strokeWidth={1.5}
+                    label={{
+                      value: `${t("simulation.targetLine")} ${won(targetRevenue)}`,
+                      position: "insideTopLeft",
+                      fontSize: 10,
+                      fill: "var(--chart-2)",
+                    }}
+                  />
 
                   <Area
                     type="monotone"
@@ -422,6 +451,14 @@ export default function RevenueSimulation({
                   <span className="inline-block w-3 h-0.5 rounded" style={{ background: "var(--chart-1)" }} />
                   {t("simulation.net")}
                 </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="inline-block w-3 h-0.5 rounded border-t border-dashed" style={{ borderColor: "var(--muted-foreground)" }} />
+                  {t("simulation.breakeven")}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="inline-block w-3 h-0.5 rounded border-t border-dashed" style={{ borderColor: "var(--chart-2)" }} />
+                  {t("simulation.targetLine")}
+                </span>
               </div>
             </div>
           </div>
@@ -432,7 +469,7 @@ export default function RevenueSimulation({
       {requiredFeatures && requiredFeatures.length > 0 && (
         <div className="rounded-lg border">
           <div className="px-3 py-2 border-b bg-muted/30">
-            <span className="text-xs font-medium text-muted-foreground">
+            <span className="text-sm font-medium text-muted-foreground">
               {t("simulation.requiredFeatures")}
             </span>
           </div>
@@ -447,7 +484,7 @@ export default function RevenueSimulation({
                   {priorityLabel[rf.priority]}
                 </Badge>
                 <span className={`size-2 shrink-0 rounded-full ${statusDot[rf.status]}`} />
-                <span className="text-xs text-foreground/90 flex-1">{rf.feature}</span>
+                <span className="text-sm text-foreground/90 flex-1">{rf.feature}</span>
                 <span className="text-xs text-muted-foreground tabular-nums shrink-0">
                   {rf.effort}
                 </span>

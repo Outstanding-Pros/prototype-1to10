@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { PulseIcon } from "@primer/octicons-react";
+import { GlobeIcon } from "@primer/octicons-react";
 import { useTranslation, type TranslationKey } from "@/lib/i18n";
 
 interface Competitor {
@@ -92,7 +92,7 @@ export default function LevelDiagnosis({
       <div>
         <div className="flex items-center gap-2">
           <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
-            <PulseIcon size={14} />
+            <GlobeIcon size={14} />
           </span>
           <h2 className="text-base font-semibold">{t("level.title")}</h2>
         </div>
@@ -149,7 +149,7 @@ export default function LevelDiagnosis({
 
           <div className="rounded-lg border overflow-hidden">
             <div className="px-3 py-2 border-b bg-muted/30">
-              <span className="text-xs font-medium text-muted-foreground">{t("level.positioning")}</span>
+              <span className="text-sm font-medium text-muted-foreground">{t("level.positioning")}</span>
             </div>
             <div className="p-4 space-y-4">
               {/* Position statement */}
@@ -179,7 +179,7 @@ export default function LevelDiagnosis({
                         className={`grid grid-cols-3 ${i < tiers.length - 1 ? "border-b" : ""}`}
                       >
                         <div className="px-3 py-2 flex items-center">
-                          <span className="text-xs font-semibold">{tier.label}</span>
+                          <span className="text-sm font-semibold">{tier.label}</span>
                         </div>
                         <div className="px-3 py-2 text-center">
                           <p className="text-sm font-bold tabular-nums">{tier.data.revenue}</p>
@@ -222,7 +222,7 @@ export default function LevelDiagnosis({
           {/* Competitive Landscape */}
           <div className="rounded-lg border overflow-hidden">
             <div className="px-3 py-2 border-b bg-muted/30">
-              <span className="text-xs font-medium text-muted-foreground">{t("level.competitive")}</span>
+              <span className="text-sm font-medium text-muted-foreground">{t("level.competitive")}</span>
             </div>
 
             {/* Competitor table */}
@@ -251,10 +251,10 @@ export default function LevelDiagnosis({
             <div className="p-4 border-t grid grid-cols-2 gap-4">
               {/* Moats */}
               <div>
-                <p className="text-xs font-medium text-green-600 mb-2">{t("level.moats")}</p>
+                <p className="text-sm font-medium text-green-600 mb-2">{t("level.moats")}</p>
                 <ul className="space-y-1.5">
                   {positioning.moats.map((m, i) => (
-                    <li key={i} className="flex items-start gap-1.5 text-xs text-foreground/80">
+                    <li key={i} className="flex items-start gap-1.5 text-sm text-foreground/80">
                       <span className="mt-1 size-1.5 rounded-full bg-green-500 flex-shrink-0" />
                       {m}
                     </li>
@@ -263,10 +263,10 @@ export default function LevelDiagnosis({
               </div>
               {/* Vulnerabilities */}
               <div>
-                <p className="text-xs font-medium text-destructive mb-2">{t("level.vulnerabilities")}</p>
+                <p className="text-sm font-medium text-destructive mb-2">{t("level.vulnerabilities")}</p>
                 <ul className="space-y-1.5">
                   {positioning.vulnerabilities.map((v, i) => (
-                    <li key={i} className="flex items-start gap-1.5 text-xs text-foreground/80">
+                    <li key={i} className="flex items-start gap-1.5 text-sm text-foreground/80">
                       <span className="mt-1 size-1.5 rounded-full bg-destructive flex-shrink-0" />
                       {v}
                     </li>
@@ -289,7 +289,7 @@ function PositioningMap({ data, selfName }: { data: PositioningMapData; selfName
   return (
     <div className="rounded-lg border overflow-hidden">
       <div className="px-3 py-2 border-b bg-muted/30">
-        <span className="text-xs font-medium text-muted-foreground">{t("level.positioning.map")}</span>
+        <span className="text-sm font-medium text-muted-foreground">{t("level.positioning.map")}</span>
       </div>
       <div className="p-4">
         {/* Chart area */}

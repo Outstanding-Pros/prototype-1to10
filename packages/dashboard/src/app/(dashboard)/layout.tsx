@@ -10,11 +10,11 @@ import {
   ZapIcon,
   ProjectRoadmapIcon,
   MilestoneIcon,
-  PeopleIcon,
   StarFillIcon,
   CheckCircleFillIcon,
   ChevronRightIcon,
 } from "@primer/octicons-react";
+import { Fan } from "lucide-react";
 import { getCustomer } from "@/lib/customer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -29,8 +29,8 @@ import SettingsMenu from "@/components/SettingsMenu";
 import { useTranslation, useLanguage } from "@/lib/i18n";
 
 const navItems = [
-  { href: "/analytics", icon: GlobeIcon, key: "nav.appProfile" as const },
-  { href: "/market", icon: PulseIcon, key: "nav.level" as const },
+  { href: "/analytics", icon: PulseIcon, key: "nav.appProfile" as const },
+  { href: "/market", icon: GlobeIcon, key: "nav.level" as const },
   { href: "/benchmark", icon: GraphIcon, key: "nav.benchmark" as const },
   { href: "/business-model", icon: ZapIcon, key: "nav.simulation" as const },
   { href: "/sprint", icon: ProjectRoadmapIcon, key: "nav.roadmap" as const },
@@ -56,10 +56,10 @@ export default function DashboardLayout({
         {/* Logo */}
         <div className="px-4 py-4 flex items-center gap-2">
           <span className="size-6 bg-sidebar-accent rounded flex items-center justify-center text-sidebar-accent-foreground">
-            <PeopleIcon size={14} />
+            <Fan size={14} />
           </span>
           <span className="text-[13px] font-semibold text-sidebar-accent-foreground">
-            Copo
+            Propel
           </span>
         </div>
 

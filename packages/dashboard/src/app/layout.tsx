@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Copo — Co-Product Owner",
+  title: "Propel — Co-Product Owner",
   description: "당신의 서비스, 수익화 처방을 받아보세요",
 };
 

@@ -205,6 +205,8 @@ const translations = {
   "simulation.revenue": { ko: "매출", en: "Revenue" },
   "simulation.cost": { ko: "비용", en: "Cost" },
   "simulation.net": { ko: "순이익", en: "Net" },
+  "simulation.breakeven": { ko: "손익분기", en: "Break-even" },
+  "simulation.targetLine": { ko: "목표 매출", en: "Target" },
 
   // RevenueSimulation — Required Features
   "simulation.requiredFeatures": { ko: "필요 기능", en: "Required Features" },
@@ -328,8 +330,8 @@ const translations = {
     en: "Real-time cohort benchmark updates",
   },
   "offer.modal.feature4": {
-    ko: "개발 환경 CLI 통합 (npx @copo/cli init)",
-    en: "Dev CLI integration (npx @copo/cli init)",
+    ko: "개발 환경 CLI 통합 (npx @propel/cli init)",
+    en: "Dev CLI integration (npx @propel/cli init)",
   },
   "offer.modal.subscribe": { ko: "구독 시작하기", en: "Start Subscription" },
   "offer.modal.trial": {
@@ -359,7 +361,7 @@ const translations = {
   "serviceInfo.measurementGrade": { ko: "측정 준비도", en: "Measurement Grade" },
 
   // Login
-  "login.title": { ko: "Copo", en: "Copo" },
+  "login.title": { ko: "Propel", en: "Propel" },
   "login.subtitle": { ko: "Co-Product Owner", en: "Co-Product Owner" },
   "login.email": { ko: "이메일", en: "Email" },
   "login.emailPlaceholder": { ko: "name@example.com", en: "name@example.com" },
@@ -476,7 +478,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("copo-language") as Language | null;
+    const stored = localStorage.getItem("propel-language") as Language | null;
     if (stored === "ko" || stored === "en") {
       setLanguageState(stored);
     }
@@ -485,7 +487,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("copo-language", lang);
+    localStorage.setItem("propel-language", lang);
   }, []);
 
   const t = useCallback(

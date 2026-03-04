@@ -61,7 +61,7 @@ export default function MeasurementSetup({ grade, gaps }: MeasurementSetupProps)
             <span className="size-4 rounded-full ring-2 ring-destructive/30 flex-shrink-0" />
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium">{g.item}</p>
-              <p className="text-xs text-muted-foreground truncate">{g.guide}</p>
+              <p className="text-sm text-muted-foreground truncate">{g.guide}</p>
             </div>
             <span className="text-xs text-muted-foreground whitespace-nowrap">~{g.time}</span>
           </div>
@@ -72,8 +72,8 @@ export default function MeasurementSetup({ grade, gaps }: MeasurementSetupProps)
         <>
           <div className="border-b" />
           <div className="rounded-lg bg-amber-500/5 p-4 ring-1 ring-amber-500/10">
-            <p className="text-xs font-semibold text-amber-700 mb-2">{t("measurement.timeline")}</p>
-            <div className="space-y-1.5 text-xs text-amber-800/80">
+            <p className="text-sm font-semibold text-amber-700 mb-2">{t("measurement.timeline")}</p>
+            <div className="space-y-1.5 text-sm text-amber-800/80">
               <p><strong>Day 1~3</strong> — {t("measurement.day1_3")}</p>
               <p><strong>Day 4~10</strong> — {t("measurement.day4_10")}</p>
               <p><strong>Day 11~14</strong> — {t("measurement.day11_14")}</p>

@@ -196,7 +196,7 @@ export default function Strategy({
       {/* Executive summary */}
       {(executiveSummary || keyInsight) && (
         <div className="rounded-lg bg-muted/30 px-4 py-3 space-y-1">
-          <p className="text-xs font-medium text-muted-foreground">
+          <p className="text-sm font-medium text-muted-foreground">
             {t("strategy.executiveSummary")}
           </p>
           {executiveSummary && <p className="text-sm text-foreground/80">{executiveSummary}</p>}
@@ -208,7 +208,7 @@ export default function Strategy({
       {projectionData && projectionData.length > 0 && (
         <div className="rounded-lg border">
           <div className="px-3 py-2 border-b bg-muted/30">
-            <span className="text-xs font-medium text-muted-foreground">
+            <span className="text-sm font-medium text-muted-foreground">
               {t("strategy.growthProjection")}
             </span>
           </div>
@@ -350,7 +350,7 @@ export default function Strategy({
       {marketContext?.trends && marketContext.trends.length > 0 && (
         <div className="rounded-lg border">
           <div className="px-3 py-2 border-b bg-muted/30">
-            <span className="text-xs font-medium text-muted-foreground">
+            <span className="text-sm font-medium text-muted-foreground">
               {t("strategy.marketTrends")}
             </span>
           </div>
@@ -369,8 +369,8 @@ export default function Strategy({
                   </Badge>
                   <span className="text-sm font-semibold truncate">{tr.trend}</span>
                 </div>
-                <p className="text-xs text-foreground/70 leading-relaxed">{tr.detail}</p>
-                <p className="text-xs">
+                <p className="text-sm text-foreground/70 leading-relaxed">{tr.detail}</p>
+                <p className="text-sm">
                   <span className="font-medium text-muted-foreground">
                     {t("strategy.relevance")}:
                   </span>{" "}
@@ -402,7 +402,7 @@ export default function Strategy({
                 {phase.quarter}
               </span>
             </div>
-            <p className="text-xs font-medium truncate">{phase.theme}</p>
+            <p className="text-sm font-medium truncate">{phase.theme}</p>
             {phase.horizon && (
               <Badge
                 variant="outline"
@@ -428,7 +428,7 @@ export default function Strategy({
           <div className="flex items-center gap-2">
             <span className={`size-2.5 rounded-full ${statusDot[selected.status]}`} />
             <span className="text-base font-semibold">{selected.quarter}</span>
-            <span className="text-xs text-muted-foreground">{selected.theme}</span>
+            <span className="text-sm text-muted-foreground">{selected.theme}</span>
             {selected.horizon && (
               <Badge
                 variant="outline"
@@ -442,7 +442,7 @@ export default function Strategy({
           {/* Rationale (WHY) */}
           {selected.rationale && (
             <div className="rounded-md bg-muted/40 px-3 py-2">
-              <p className="text-xs font-medium text-muted-foreground mb-0.5">
+              <p className="text-sm font-medium text-muted-foreground mb-0.5">
                 {t("strategy.rationale")}
               </p>
               <p className="text-sm text-foreground/80">{selected.rationale}</p>
@@ -453,14 +453,14 @@ export default function Strategy({
           <div className="grid grid-cols-2 gap-4">
             {/* Goals */}
             <div>
-              <p className="text-xs font-medium text-muted-foreground mb-2">
+              <p className="text-sm font-medium text-muted-foreground mb-2">
                 {t("strategy.goals")}
               </p>
               <ul className="space-y-1">
                 {selected.goals.map((goal, j) => (
                   <li
                     key={j}
-                    className="flex items-start gap-1.5 text-xs text-foreground/70"
+                    className="flex items-start gap-1.5 text-sm text-foreground/70"
                   >
                     <span className="mt-1.5 size-1 rounded-full bg-muted-foreground/40 flex-shrink-0" />
                     {goal}
@@ -472,7 +472,7 @@ export default function Strategy({
             {/* KPI Table */}
             {selected.kpis && selected.kpis.length > 0 && (
               <div>
-                <p className="text-xs font-medium text-muted-foreground mb-2">
+                <p className="text-sm font-medium text-muted-foreground mb-2">
                   {t("strategy.kpis")}
                 </p>
                 <Table>
@@ -486,11 +486,11 @@ export default function Strategy({
                   <TableBody>
                     {selected.kpis.map((kpi, k) => (
                       <TableRow key={k}>
-                        <TableCell className="text-xs py-1.5">{kpi.metric}</TableCell>
-                        <TableCell className="text-xs py-1.5 text-right tabular-nums text-muted-foreground">
+                        <TableCell className="text-sm py-1.5">{kpi.metric}</TableCell>
+                        <TableCell className="text-sm py-1.5 text-right tabular-nums text-muted-foreground">
                           {kpi.current}
                         </TableCell>
-                        <TableCell className="text-xs py-1.5 text-right tabular-nums font-medium">
+                        <TableCell className="text-sm py-1.5 text-right tabular-nums font-medium">
                           {kpi.target}
                         </TableCell>
                       </TableRow>
@@ -504,12 +504,12 @@ export default function Strategy({
           {/* Risks & Mitigation */}
           {selected.risks && selected.risks.length > 0 && (
             <div>
-              <p className="text-xs font-medium text-muted-foreground mb-2">
+              <p className="text-sm font-medium text-muted-foreground mb-2">
                 {t("strategy.risks")}
               </p>
               <div className="space-y-1.5">
                 {selected.risks.map((r, ri) => (
-                  <div key={ri} className="flex items-start gap-2 text-xs">
+                  <div key={ri} className="flex items-start gap-2 text-sm">
                     <span
                       className={`mt-1.5 size-2 rounded-full flex-shrink-0 ${severityDot[r.severity]}`}
                     />
@@ -527,7 +527,7 @@ export default function Strategy({
           {/* Success Criteria */}
           {selected.successCriteria && (
             <div className="rounded-md bg-green-500/5 border border-green-500/15 px-3 py-2">
-              <p className="text-xs">
+              <p className="text-sm">
                 <span className="font-medium text-green-600">
                   {t("strategy.successCriteria")}:
                 </span>{" "}

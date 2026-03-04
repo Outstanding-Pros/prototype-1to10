@@ -78,7 +78,7 @@ export default function Roadmap({ currentWeek, weeks }: RoadmapProps) {
       {/* Calendar Timeline View */}
       <div className="rounded-lg border overflow-hidden">
         <div className="px-3 py-2 border-b bg-muted/30">
-          <span className="text-xs font-medium text-muted-foreground">{t("roadmap.timeline")}</span>
+          <span className="text-sm font-medium text-muted-foreground">{t("roadmap.timeline")}</span>
         </div>
         <div className="overflow-x-auto">
           <div className="min-w-[672px]">
@@ -196,21 +196,21 @@ export default function Roadmap({ currentWeek, weeks }: RoadmapProps) {
               <span className="text-base font-semibold">
                 {sprintLabel(selectedWeek.week)}
               </span>
-              <span className="text-xs text-muted-foreground">{selectedWeek.theme}</span>
+              <span className="text-sm text-muted-foreground">{selectedWeek.theme}</span>
             </div>
-            <span className="text-xs text-muted-foreground">{selectedWeek.hours}</span>
+            <span className="text-sm text-muted-foreground">{selectedWeek.hours}</span>
           </div>
 
           {(selectedWeek.hypothesis || selectedWeek.metric) && (
             <div className="mb-3 rounded-md bg-muted/40 px-3 py-2 space-y-1">
               {selectedWeek.hypothesis && (
-                <p className="text-xs">
+                <p className="text-sm">
                   <span className="font-medium text-muted-foreground">{t("roadmap.hypothesis")}:</span>{" "}
                   <span className="text-foreground/80">{selectedWeek.hypothesis}</span>
                 </p>
               )}
               {selectedWeek.metric && (
-                <p className="text-xs">
+                <p className="text-sm">
                   <span className="font-medium text-muted-foreground">{t("roadmap.metric")}:</span>{" "}
                   <span className="text-foreground/80">{selectedWeek.metric}</span>
                 </p>
@@ -233,7 +233,7 @@ export default function Roadmap({ currentWeek, weeks }: RoadmapProps) {
                   ₩{selectedWeek.revenueImpact.expectedMrr.toLocaleString("ko-KR")}
                 </span>
               </div>
-              <p className="text-xs text-foreground/70">{selectedWeek.revenueImpact.description}</p>
+              <p className="text-sm text-foreground/70">{selectedWeek.revenueImpact.description}</p>
             </div>
           )}
 
@@ -256,7 +256,7 @@ export default function Roadmap({ currentWeek, weeks }: RoadmapProps) {
             ))}
           </ul>
 
-          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+          <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
             <span>{t("roadmap.deliverable")}</span>
             <Badge variant="outline" className="text-xs font-normal">
               {selectedWeek.deliverable}
@@ -267,10 +267,10 @@ export default function Roadmap({ currentWeek, weeks }: RoadmapProps) {
             <>
               <div className="border-b my-3" />
               <div className="space-y-1">
-                <p className="text-xs font-medium text-muted-foreground mb-1.5">{t("roadmap.criteria")}</p>
-                <p className="text-xs text-green-600">{selectedWeek.goNoGo.go}</p>
-                <p className="text-xs text-yellow-600">{selectedWeek.goNoGo.adjust}</p>
-                <p className="text-xs text-destructive">{selectedWeek.goNoGo.redesign}</p>
+                <p className="text-sm font-medium text-muted-foreground mb-1.5">{t("roadmap.criteria")}</p>
+                <p className="text-sm text-green-600">{selectedWeek.goNoGo.go}</p>
+                <p className="text-sm text-yellow-600">{selectedWeek.goNoGo.adjust}</p>
+                <p className="text-sm text-destructive">{selectedWeek.goNoGo.redesign}</p>
               </div>
             </>
           )}
