@@ -53,8 +53,8 @@ export default function AnalyticsDashboard({ customer }: AnalyticsDashboardProps
           <div className="flex items-center gap-2">
             <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
               <PulseIcon size={14} />
-            </span>
-            <h2 className="text-base font-semibold">{t("appProfile.title")}</h2>
+            </span> 
+            <h2 className="text-xl font-bold">{t("appProfile.title")}</h2>
           </div>
         </div>
         <p className="text-sm text-muted-foreground mt-1 ml-7">{t("appProfile.summary")}</p>

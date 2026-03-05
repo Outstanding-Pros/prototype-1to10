@@ -96,7 +96,7 @@ export default function BenchmarkComparison({
           <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
             <GraphIcon size={14} />
           </span>
-          <h2 className="text-base font-semibold">{t("benchmark.title")}</h2>
+          <h2 className="text-xl font-bold">{t("benchmark.title")}</h2>
         </div>
         <p className="text-sm text-muted-foreground mt-1 ml-7">{t("benchmark.summary")}</p>
       </div>

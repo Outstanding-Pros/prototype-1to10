@@ -176,7 +176,7 @@ export default function Strategy({
           <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
             <MilestoneIcon size={14} />
           </span>
-          <h2 className="text-base font-semibold">{t("strategy.title")}</h2>
+          <h2 className="text-xl font-bold">{t("strategy.title")}</h2>
         </div>
         <p className="text-sm text-muted-foreground mt-1 ml-7">{t("strategy.summary")}</p>
       </div>

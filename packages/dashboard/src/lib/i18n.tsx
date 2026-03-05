@@ -26,9 +26,9 @@ const translations = {
   // AppProfile
   "appProfile.title": { ko: "애널리틱스", en: "Analytics" },
   "appProfile.summary": {
-    ko: "현재 서비스의 핵심 지표를 한눈에 보여줍니다. 유저가 얼마나 자주 오는지, 수익은 어떤 구조인지 파악하는 출발점이에요.",
-    en: "A snapshot of your service's key metrics. This is the starting point to understand how often users visit and how your revenue is structured.",
-  },
+  ko: "수익 문제는 대부분 진단 부재에서 시작해요. 핵심 지표를 해석하고, 어디가 막혔는지 확인하는 출발점입니다.",
+  en: "Most revenue problems start with a lack of diagnosis. This is where you interpret the key metrics and identify exactly where things are stuck.",
+ },
   "appProfile.product": { ko: "프로덕트", en: "Product" },
   "appProfile.vertical": { ko: "버티컬", en: "Vertical" },
   "appProfile.monetizationModel": { ko: "수익화 모델", en: "Monetization Model" },

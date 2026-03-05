@@ -70,7 +70,7 @@ export default function Roadmap({ currentWeek, weeks }: RoadmapProps) {
           <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
             <ProjectRoadmapIcon size={14} />
           </span>
-          <h2 className="text-base font-semibold">{t("roadmap.title")}</h2>
+          <h2 className="text-xl font-bold"ㄴ>{t("roadmap.title")}</h2>
         </div>
         <p className="text-sm text-muted-foreground mt-1 ml-7">{t("roadmap.summary")}</p>
       </div>
