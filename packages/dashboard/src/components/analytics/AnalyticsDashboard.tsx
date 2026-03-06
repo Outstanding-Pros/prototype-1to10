@@ -37,6 +37,7 @@ export default function AnalyticsDashboard({ customer }: AnalyticsDashboardProps
   }, [fullData, period]);
 
   const m = customer.metrics;
+  const digest = (customer as Record<string, unknown>).analyticsDigest as string | undefined;
 
   const modelLabels: Record<string, string> = {
     admob_banner: t("appProfile.model.banner"),
@@ -53,11 +54,16 @@ export default function AnalyticsDashboard({ customer }: AnalyticsDashboardProps
           <div className="flex items-center gap-2">
             <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
               <PulseIcon size={14} />
-            </span> 
+            </span>
             <h2 className="text-xl font-bold">{t("appProfile.title")}</h2>
           </div>
         </div>
-        <p className="text-sm text-muted-foreground mt-1 ml-7">{t("appProfile.summary")}</p>
+        <div className="mt-1 ml-7 space-y-1">
+          <p className="text-sm text-muted-foreground">{t("appProfile.summary")}</p>
+          {digest && (
+            <p className="text-sm text-foreground/70 leading-relaxed whitespace-pre-line">{digest}</p>
+          )}
+        </div>
         <div className="flex items-center justify-end mt-2">
           <Select value={period} onValueChange={(v) => setPeriod(v as Period)}>
             <SelectTrigger size="sm" className="w-auto text-xs">

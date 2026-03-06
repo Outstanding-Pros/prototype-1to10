@@ -28,6 +28,15 @@
       "targetRevenue": 2000000,
       "revenueGap": 1680000
     },
+    "analyticsDigest": "Stickiness at 14.1% shows revisits are working, but ARPU of $0.03 (below cohort) signals that traffic-to-revenue conversion is blocked. Session time of 3m 05s (P75) indicates high engagement — room for premium conversion exists.\nMRR of $246 is only 16% of target — unreachable with ads alone. A new revenue model must come first.",
+    "analyticsInsights": [
+      { "metric": "Stickiness", "signal": "neutral", "text": "DAU/MAU at 14.1% is at category average. Users are returning periodically, but the service hasn't become a daily habit yet — strengthening the revisit loop with push notifications or content reminders can expand the conversion pool." },
+      { "metric": "ARPU", "signal": "negative", "text": "ARPU at $0.03 is below cohort average. Revenue efficiency per user is extremely low under the current ad-only structure. Introducing subscriptions or premium features is the most direct lever to raise per-user revenue." },
+      { "metric": "D1 Retention", "signal": "positive", "text": "D1 Retention at 28% is above cohort average. More than 1 in 4 first-time visitors return the next day, meaning the initial value proposition is working. Scaling acquisition while maintaining this retention will naturally grow MAU." },
+      { "metric": "MRR", "signal": "negative", "text": "MRR at $246 is only 16% of the target ($1,538). Ad revenue alone makes it structurally impossible to close the gap — without adding a new revenue model, the shortfall won't narrow." },
+      { "metric": "Session", "signal": "positive", "text": "Avg. session time of 3m 05s is at the P75 (top 25%) level for the cohort. Users are deeply engaging with content — a strong signal that willingness to pay for premium features like AI analysis likely exists." },
+      { "metric": "Churn", "signal": "neutral", "text": "Monthly churn at 9% falls within the cohort average range (6–12%). Not immediately alarming, but once a subscription model is introduced, churn management becomes the critical variable for MRR growth. Design churn prediction and win-back campaigns proactively." }
+    ],
     "diagnosis": {
       "levelReason": "Running only Google AdSense display ads with no paid conversion attempts",
       "keyInsight": "ARPU is below category average. Monetization efficiency is low relative to community engagement (Stickiness 14.1%) — premium membership is the key lever.",

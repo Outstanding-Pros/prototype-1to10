@@ -435,6 +435,7 @@ const translations = {
   "onboarding.step4.targetPlaceholder": { ko: "예: 5000000", en: "e.g. 5000000" },
 
   // Analytics Dashboard
+  "analytics.insights.title": { ko: "지표 해석", en: "Metric Insights" },
   "analytics.period.7d": { ko: "최근 7일", en: "Last 7 days" },
   "analytics.period.14d": { ko: "최근 14일", en: "Last 14 days" },
   "analytics.period.30d": { ko: "최근 30일", en: "Last 30 days" },
