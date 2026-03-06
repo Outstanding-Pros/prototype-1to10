@@ -2,9 +2,11 @@
 
 import { getCustomer, type Task } from "@/lib/customer";
 import Roadmap from "@/components/Roadmap";
+import { useLanguage } from "@/lib/i18n";
 
 export default function RoadmapPage() {
-  const c = getCustomer();
+  const { language } = useLanguage();
+  const c = getCustomer(undefined, language);
 
   if (!c.roadmap) return null;
 

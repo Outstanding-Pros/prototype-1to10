@@ -3,9 +3,11 @@
 import { getCustomer } from "@/lib/customer";
 import AnalyticsDashboard from "@/components/analytics/AnalyticsDashboard";
 import MeasurementSetup from "@/components/MeasurementSetup";
+import { useLanguage } from "@/lib/i18n";
 
 export default function ProfilePage() {
-  const c = getCustomer();
+  const { language } = useLanguage();
+  const c = getCustomer(undefined, language);
 
   return (
     <div className="space-y-8">

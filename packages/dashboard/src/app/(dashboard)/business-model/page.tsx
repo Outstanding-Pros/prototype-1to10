@@ -2,9 +2,11 @@
 
 import { getCustomer } from "@/lib/customer";
 import RevenueSimulation, { type RevenueSimulationProps } from "@/components/RevenueSimulation";
+import { useLanguage } from "@/lib/i18n";
 
 export default function SimulationPage() {
-  const c = getCustomer();
+  const { language } = useLanguage();
+  const c = getCustomer(undefined, language);
 
   if (!c.simulation || !c.recommendation) return null;
 

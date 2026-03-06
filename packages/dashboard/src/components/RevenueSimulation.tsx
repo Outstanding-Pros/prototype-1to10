@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { ZapIcon } from "@primer/octicons-react";
 import { useTranslation, useLanguage } from "@/lib/i18n";
+import { formatCurrency } from "@/lib/currency";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -88,9 +89,7 @@ export interface RevenueSimulationProps {
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-function won(n: number) {
-  return `₩${n.toLocaleString("ko-KR")}`;
-}
+/* currency formatting moved to component level using formatCurrency */
 
 const priorityBadgeVariant: Record<RequiredFeature["priority"], string> = {
   high: "bg-primary/15 text-primary border-primary/20",
@@ -117,6 +116,7 @@ function CashflowTooltip({
   payload?: { dataKey?: string; name?: string; value?: number; color?: string }[];
   label?: string;
 }) {
+  const { language } = useLanguage();
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-lg border bg-background px-3 py-2 shadow-sm text-xs space-y-0.5">
@@ -124,7 +124,7 @@ function CashflowTooltip({
       {payload.map((p) => (
         <div key={p.dataKey} className="flex justify-between gap-4">
           <span style={{ color: p.color }}>{p.name}</span>
-          <span className="tabular-nums font-medium">{won(p.value as number)}</span>
+          <span className="tabular-nums font-medium">{formatCurrency(p.value as number, language)}</span>
         </div>
       ))}
     </div>
@@ -149,6 +149,7 @@ export default function RevenueSimulation({
 }: RevenueSimulationProps) {
   const { t } = useTranslation();
   const { language } = useLanguage();
+  const won = (n: number) => formatCurrency(n, language);
 
   const priorityLabel: Record<RequiredFeature["priority"], string> = {
     high: t("roadmap.priority.high"),
@@ -308,10 +309,10 @@ export default function RevenueSimulation({
                 <TableHeader>
                   <TableRow>
                     <TableHead className="text-xs h-8">
-                      {language === "ko" ? "항목" : "Item"}
+                      {t("simulation.feature")}
                     </TableHead>
                     <TableHead className="text-xs text-right h-8">
-                      {language === "ko" ? "월 비용" : "Monthly"}
+                      {t("simulation.cost")}
                     </TableHead>
                   </TableRow>
                 </TableHeader>
@@ -326,7 +327,7 @@ export default function RevenueSimulation({
                   ))}
                   <TableRow>
                     <TableCell className="text-sm font-medium py-1.5">
-                      {language === "ko" ? "합계" : "Total"}
+                      {t("simulation.total")}
                     </TableCell>
                     <TableCell className="text-sm text-right tabular-nums font-medium py-1.5">
                       {won(costStructure.fixedCosts.reduce((s, c) => s + c.monthlyCost, 0))}
@@ -367,9 +368,7 @@ export default function RevenueSimulation({
                     axisLine={false}
                   />
                   <YAxis
-                    tickFormatter={(v: number) =>
-                      v >= 1000000 ? `${(v / 1000000).toFixed(1)}M` : `${(v / 1000).toFixed(0)}K`
-                    }
+                    tickFormatter={(v: number) => formatCurrency(v, language).replace(/,/g, "")}
                     tick={{ fontSize: 11 }}
                     className="text-muted-foreground"
                     tickLine={false}

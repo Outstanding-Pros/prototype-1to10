@@ -2,9 +2,11 @@
 
 import { getCustomer } from "@/lib/customer";
 import LevelDiagnosis from "@/components/LevelDiagnosis";
+import { useLanguage } from "@/lib/i18n";
 
 export default function LevelPage() {
-  const c = getCustomer();
+  const { language } = useLanguage();
+  const c = getCustomer(undefined, language);
 
   if (!c.diagnosis) return null;
 

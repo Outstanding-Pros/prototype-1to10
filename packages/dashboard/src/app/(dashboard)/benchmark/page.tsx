@@ -3,6 +3,7 @@
 import { getCustomer } from "@/lib/customer";
 import BenchmarkComparison from "@/components/BenchmarkComparison";
 import { useTranslation, useLanguage } from "@/lib/i18n";
+import { formatCurrency } from "@/lib/currency";
 
 function fmtDuration(seconds: number) {
   const m = Math.floor(seconds / 60);
@@ -11,15 +12,15 @@ function fmtDuration(seconds: number) {
 }
 
 export default function BenchmarkPage() {
-  const c = getCustomer();
   const { t } = useTranslation();
   const { language } = useLanguage();
+  const c = getCustomer(undefined, language);
 
   if (!c.benchmarks?.verdict || !c.diagnosis) return null;
 
   const m = c.metrics;
-  const b = c.benchmarks;
-  const v = b.verdict;
+  const v = c.benchmarks.verdict;
+  const fc = (n: number) => formatCurrency(n, language);
 
   return (
     <BenchmarkComparison
@@ -36,7 +37,7 @@ export default function BenchmarkPage() {
               yours: `${((m.stickiness ?? 0) * 100).toFixed(1)}%`,
               avg: "18%",
               top25: "25%",
-              verdict: v.stickiness as "하위" | "평균" | "상위",
+              verdict: v.stickiness as "low" | "avg" | "high",
             },
             {
               label: t("benchmark.row.bounceRate"),
@@ -44,7 +45,7 @@ export default function BenchmarkPage() {
               yours: `${((m.bounceRate ?? 0) * 100).toFixed(0)}%`,
               avg: "45%",
               top25: "30%",
-              verdict: (v.bounceRate ?? "평균") as "하위" | "평균" | "상위",
+              verdict: (v.bounceRate ?? "avg") as "low" | "avg" | "high",
             },
             {
               label: t("benchmark.row.sessionDuration"),
@@ -52,7 +53,7 @@ export default function BenchmarkPage() {
               yours: fmtDuration(m.avgSessionDuration ?? 0),
               avg: fmtDuration(120),
               top25: fmtDuration(300),
-              verdict: (v.sessionDuration ?? "평균") as "하위" | "평균" | "상위",
+              verdict: (v.sessionDuration ?? "avg") as "low" | "avg" | "high",
             },
             {
               label: t("benchmark.row.pagesPerSession"),
@@ -60,7 +61,7 @@ export default function BenchmarkPage() {
               yours: `${m.pagesPerSession ?? 0}`,
               avg: "2.5",
               top25: "5.0",
-              verdict: (v.pagesPerSession ?? "평균") as "하위" | "평균" | "상위",
+              verdict: (v.pagesPerSession ?? "avg") as "low" | "avg" | "high",
             },
           ],
         },
@@ -70,26 +71,26 @@ export default function BenchmarkPage() {
             {
               label: t("benchmark.row.ecpm"),
               description: t("benchmark.row.ecpm.desc"),
-              yours: "₩2,200",
-              avg: "₩2,600",
-              top25: "₩4,500",
-              verdict: v.ecpm as "하위" | "평균" | "상위",
+              yours: fc(2200),
+              avg: fc(2600),
+              top25: fc(4500),
+              verdict: v.ecpm as "low" | "avg" | "high",
             },
             {
               label: t("benchmark.row.arpu"),
               description: t("benchmark.row.arpu.desc"),
-              yours: `₩${m.arpu}`,
-              avg: "₩150",
-              top25: "₩350",
-              verdict: v.arpu as "하위" | "평균" | "상위",
+              yours: fc(m.arpu),
+              avg: fc(150),
+              top25: fc(350),
+              verdict: v.arpu as "low" | "avg" | "high",
             },
             {
               label: t("benchmark.row.arpuAdOnly"),
               description: t("benchmark.row.arpuAdOnly.desc"),
-              yours: `₩${m.arpu}`,
-              avg: "₩55",
-              top25: "₩90",
-              verdict: (v.arpuAdOnly ?? v.arpu) as "하위" | "평균" | "상위",
+              yours: fc(m.arpu),
+              avg: fc(55),
+              top25: fc(90),
+              verdict: (v.arpuAdOnly ?? v.arpu) as "low" | "avg" | "high",
             },
           ],
         },
@@ -102,7 +103,7 @@ export default function BenchmarkPage() {
               yours: `${((m.retentionD1 ?? 0) * 100).toFixed(0)}%`,
               avg: "25%",
               top25: "35%",
-              verdict: (v.retentionD1 ?? "평균") as "하위" | "평균" | "상위",
+              verdict: (v.retentionD1 ?? "avg") as "low" | "avg" | "high",
             },
             {
               label: t("benchmark.row.retentionD7"),
@@ -110,7 +111,7 @@ export default function BenchmarkPage() {
               yours: `${((m.retentionD7 ?? 0) * 100).toFixed(0)}%`,
               avg: "10%",
               top25: "18%",
-              verdict: (v.retentionD7 ?? "평균") as "하위" | "평균" | "상위",
+              verdict: (v.retentionD7 ?? "avg") as "low" | "avg" | "high",
             },
             {
               label: t("benchmark.row.churn"),
@@ -118,13 +119,13 @@ export default function BenchmarkPage() {
               yours: `${((m.monthlyChurn ?? 0) * 100).toFixed(0)}%`,
               avg: "10%",
               top25: "6%",
-              verdict: (v.churn ?? "평균") as "하위" | "평균" | "상위",
+              verdict: (v.churn ?? "avg") as "low" | "avg" | "high",
             },
           ],
         },
       ]}
       insight={c.diagnosis.keyInsight}
-      potentialRevenue="₩2,975,000"
+      potentialRevenue={fc(2975000)}
       potentialMultiple={language === "ko" ? "약 9.3배" : "~9.3x"}
       sources={[
         { label: "traffic", name: t("benchmark.source.traffic") },

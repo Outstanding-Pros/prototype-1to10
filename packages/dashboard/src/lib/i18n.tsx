@@ -311,7 +311,7 @@ const translations = {
 
   // Offer modal
   "offer.modal.title": { ko: "월간 구독", en: "Monthly Plan" },
-  "offer.modal.price": { ko: "₩49,000", en: "₩49,000" },
+  "offer.modal.price": { ko: "₩49,000", en: "$38" },
   "offer.modal.perMonth": { ko: "/월", en: "/mo" },
   "offer.modal.desc": {
     ko: "스프린트 사이클을 반복할수록 정밀해지는 성장 전략을 경험하세요.",
@@ -426,12 +426,12 @@ const translations = {
   "onboarding.step4.monthlyRevenue": { ko: "월 수익 범위", en: "Monthly Revenue Range" },
   "onboarding.step4.revenuePlaceholder": { ko: "선택하세요", en: "Select" },
   "onboarding.step4.rev.none": { ko: "없음", en: "None" },
-  "onboarding.step4.rev.under50": { ko: "~50만원", en: "< ₩500K" },
-  "onboarding.step4.rev.50to200": { ko: "50~200만원", en: "₩500K–₩2M" },
-  "onboarding.step4.rev.200to500": { ko: "200~500만원", en: "₩2M–₩5M" },
-  "onboarding.step4.rev.500to1000": { ko: "500만~1000만원", en: "₩5M–₩10M" },
-  "onboarding.step4.rev.over1000": { ko: "1000만원+", en: "₩10M+" },
-  "onboarding.step4.targetRevenue": { ko: "목표 월 수익 (원)", en: "Target Monthly Revenue (₩)" },
+  "onboarding.step4.rev.under50": { ko: "~50만원", en: "< $400" },
+  "onboarding.step4.rev.50to200": { ko: "50~200만원", en: "$400–$1.5K" },
+  "onboarding.step4.rev.200to500": { ko: "200~500만원", en: "$1.5K–$4K" },
+  "onboarding.step4.rev.500to1000": { ko: "500만~1000만원", en: "$4K–$8K" },
+  "onboarding.step4.rev.over1000": { ko: "1000만원+", en: "$8K+" },
+  "onboarding.step4.targetRevenue": { ko: "목표 월 수익 (원)", en: "Target Monthly Revenue ($)" },
   "onboarding.step4.targetPlaceholder": { ko: "예: 5000000", en: "e.g. 5000000" },
 
   // Analytics Dashboard

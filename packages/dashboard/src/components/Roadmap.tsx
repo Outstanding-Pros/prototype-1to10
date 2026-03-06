@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { ProjectRoadmapIcon } from "@primer/octicons-react";
 import { useTranslation, useLanguage, type TranslationKey } from "@/lib/i18n";
+import { formatCurrency } from "@/lib/currency";
 import type { Task } from "@/lib/customer";
 
 interface RevenueImpact {
@@ -70,7 +71,7 @@ export default function Roadmap({ currentWeek, weeks }: RoadmapProps) {
           <span className="size-5 rounded bg-primary/10 flex items-center justify-center">
             <ProjectRoadmapIcon size={14} />
           </span>
-          <h2 className="text-xl font-bold"ㄴ>{t("roadmap.title")}</h2>
+          <h2 className="text-xl font-bold">{t("roadmap.title")}</h2>
         </div>
         <p className="text-sm text-muted-foreground mt-1 ml-7">{t("roadmap.summary")}</p>
       </div>
@@ -230,7 +231,7 @@ export default function Roadmap({ currentWeek, weeks }: RoadmapProps) {
               <div className="flex items-baseline gap-2">
                 <span className="text-xs text-muted-foreground">{t("roadmap.expectedMrr")}</span>
                 <span className="text-sm font-bold tabular-nums text-chart-3">
-                  ₩{selectedWeek.revenueImpact.expectedMrr.toLocaleString("ko-KR")}
+                  {formatCurrency(selectedWeek.revenueImpact.expectedMrr, language)}
                 </span>
               </div>
               <p className="text-sm text-foreground/70">{selectedWeek.revenueImpact.description}</p>

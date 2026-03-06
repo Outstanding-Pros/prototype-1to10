@@ -1,17 +1,12 @@
 "use client";
 
 import MetricChart from "./MetricChart";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation, useLanguage } from "@/lib/i18n";
+import { formatCurrencyCompact } from "@/lib/currency";
 import type { DailyDataPoint } from "@/lib/mock-timeseries";
 
 interface TimeSeriesSectionProps {
   data: DailyDataPoint[];
-}
-
-function formatCurrency(v: number) {
-  if (v >= 1_000_000) return `₩${(v / 1_000_000).toFixed(1)}M`;
-  if (v >= 1_000) return `₩${(v / 1_000).toFixed(0)}K`;
-  return `₩${v}`;
 }
 
 function formatPercent(v: number) {
@@ -26,6 +21,8 @@ function formatNumber(v: number) {
 
 export default function TimeSeriesSection({ data }: TimeSeriesSectionProps) {
   const { t } = useTranslation();
+  const { language } = useLanguage();
+  const formatCurrency = (v: number) => formatCurrencyCompact(v, language);
 
   return (
     <div className="space-y-4">

@@ -1,6 +1,7 @@
-import data from "@/data/dummy-customers.json";
+import dataKo from "@/data/dummy-customers.json";
+import dataEn from "@/data/dummy-customers-en.json";
 
-type BaseCustomer = (typeof data)[number];
+type BaseCustomer = (typeof dataKo)[number];
 
 export type Task = {
   name: string;
@@ -13,10 +14,11 @@ export type Customer = BaseCustomer & {
   measurementGaps?: { item: string; guide: string; time: string }[];
 };
 
-export function getCustomer(id?: string): Customer {
+export function getCustomer(id?: string, language: string = "ko"): Customer {
+  const data = language === "en" ? dataEn : dataKo;
   if (id) {
     const found = data.find((c) => c.id === id);
-    if (found) return found;
+    if (found) return found as Customer;
   }
-  return data[0];
+  return data[0] as Customer;
 }

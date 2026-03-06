@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/dialog";
 import SettingsMenu from "@/components/SettingsMenu";
 import { useTranslation, useLanguage } from "@/lib/i18n";
+import { formatCurrency } from "@/lib/currency";
 
 const navItems = [
   { href: "/analytics", icon: PulseIcon, key: "nav.appProfile" as const },
@@ -43,9 +44,9 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const c = getCustomer();
   const { t } = useTranslation();
   const { language } = useLanguage();
+  const c = getCustomer(undefined, language);
   const [offerOpen, setOfferOpen] = useState(false);
   const [serviceInfoOpen, setServiceInfoOpen] = useState(false);
 
@@ -252,20 +253,18 @@ export default function DashboardLayout({
                   <div className="flex flex-wrap gap-1">
                     {c.metrics.currentModels.map((m) => (
                       <Badge key={m} variant="secondary" className="text-xs font-normal">
-                        {language === "ko"
-                          ? { adsense_display: "디스플레이 광고", admob_banner: "배너", admob_interstitial: "전면", iap_theme: "인앱(테마)" }[m] ?? m
-                          : { adsense_display: "Display Ads", admob_banner: "Banner", admob_interstitial: "Interstitial", iap_theme: "IAP (Theme)" }[m] ?? m}
+                        {{ adsense_display: t("appProfile.model.adsenseDisplay"), admob_banner: t("appProfile.model.banner"), admob_interstitial: t("appProfile.model.interstitial"), iap_theme: t("appProfile.model.iapTheme") }[m] ?? m}
                       </Badge>
                     ))}
                   </div>
                 </div>
                 <InfoField
                   label={t("serviceInfo.monthlyRevenue")}
-                  value={`₩${c.metrics.monthlyRevenue.toLocaleString("ko-KR")}`}
+                  value={formatCurrency(c.metrics.monthlyRevenue, language)}
                 />
                 <InfoField
                   label={t("serviceInfo.targetRevenue")}
-                  value={`₩${c.goals.targetRevenue.toLocaleString("ko-KR")}`}
+                  value={formatCurrency(c.goals.targetRevenue, language)}
                 />
                 <InfoField
                   label={t("serviceInfo.measurementGrade")}

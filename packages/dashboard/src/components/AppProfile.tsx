@@ -2,7 +2,8 @@
 
 import { Badge } from "@/components/ui/badge";
 import { PulseIcon } from "@primer/octicons-react";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation, useLanguage } from "@/lib/i18n";
+import { formatCurrency } from "@/lib/currency";
 
 interface BenchmarkRange {
   low: number;
@@ -29,7 +30,7 @@ interface AppProfileProps {
 }
 
 function fmt(n: number | null) {
-  return n === null ? "—" : n.toLocaleString("ko-KR");
+  return n === null ? "—" : n.toLocaleString();
 }
 
 function pct(value: number, low: number, high: number) {
@@ -39,6 +40,8 @@ function pct(value: number, low: number, high: number) {
 
 export default function AppProfile(p: AppProfileProps) {
   const { t } = useTranslation();
+  const { language } = useLanguage();
+  const fc = (n: number) => formatCurrency(n, language);
 
   const modelLabels: Record<string, string> = {
     admob_banner: t("appProfile.model.banner"),
@@ -130,11 +133,11 @@ export default function AppProfile(p: AppProfileProps) {
             <div className="flex items-baseline justify-between mb-2">
               <div>
                 <p className="text-xs text-muted-foreground mb-1">{t("appProfile.mrr")}</p>
-                <p className="text-2xl font-bold tabular-nums">₩{fmt(p.monthlyRevenue)}</p>
+                <p className="text-2xl font-bold tabular-nums">{fc(p.monthlyRevenue)}</p>
               </div>
               <div className="text-right">
                 <p className="text-xs text-muted-foreground mb-1">{t("appProfile.revenueTarget")}</p>
-                <p className="text-sm font-semibold tabular-nums text-muted-foreground">₩{fmt(p.targetRevenue)}</p>
+                <p className="text-sm font-semibold tabular-nums text-muted-foreground">{fc(p.targetRevenue)}</p>
               </div>
             </div>
             {/* Attainment progress bar */}
@@ -156,7 +159,7 @@ export default function AppProfile(p: AppProfileProps) {
                   {t("appProfile.attainment")} {attainment}%
                 </span>
                 <span className="text-destructive font-medium tabular-nums">
-                  {t("appProfile.revenueGap")} ₩{fmt(p.revenueGap)}
+                  {t("appProfile.revenueGap")} {fc(p.revenueGap)}
                 </span>
               </div>
             </div>
@@ -169,7 +172,7 @@ export default function AppProfile(p: AppProfileProps) {
             <div>
               <p className="text-xs text-muted-foreground mb-1">ARPU</p>
               <p className="text-xl font-bold tabular-nums">
-                {p.arpu !== null ? `₩${fmt(p.arpu)}` : "—"}
+                {p.arpu !== null ? fc(p.arpu) : "—"}
                 <span className="text-xs font-normal text-muted-foreground ml-1">{t("appProfile.perMonth")}</span>
               </p>
               {p.arpu !== null && p.arpuRange && (
@@ -177,14 +180,14 @@ export default function AppProfile(p: AppProfileProps) {
                   value={p.arpu}
                   low={p.arpuRange.low}
                   high={p.arpuRange.high}
-                  format={(v) => `₩${v}`}
+                  format={(v) => formatCurrency(v, language)}
                 />
               )}
             </div>
             <div>
               <p className="text-xs text-muted-foreground mb-1">eCPM</p>
               <p className="text-xl font-bold tabular-nums">
-                {p.ecpm !== null ? `₩${fmt(p.ecpm)}` : "—"}
+                {p.ecpm !== null ? fc(p.ecpm) : "—"}
               </p>
             </div>
           </div>

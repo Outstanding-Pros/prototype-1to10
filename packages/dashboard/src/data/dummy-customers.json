@@ -163,16 +163,16 @@
       "pagesPerSession": { "low": 2.0, "high": 5.0 },
       "retention": { "day1": { "low": 0.20, "high": 0.35 }, "day7": { "low": 0.08, "high": 0.18 } },
       "verdict": {
-        "ecpm": "평균",
-        "stickiness": "평균",
-        "arpu": "하위",
-        "arpuAdOnly": "하위",
-        "bounceRate": "평균",
-        "sessionDuration": "상위",
-        "pagesPerSession": "평균",
-        "retentionD1": "평균",
-        "retentionD7": "평균",
-        "churn": "평균"
+        "ecpm": "avg",
+        "stickiness": "avg",
+        "arpu": "low",
+        "arpuAdOnly": "low",
+        "bounceRate": "avg",
+        "sessionDuration": "high",
+        "pagesPerSession": "avg",
+        "retentionD1": "avg",
+        "retentionD7": "avg",
+        "churn": "avg"
       }
     },
     "roadmap": {

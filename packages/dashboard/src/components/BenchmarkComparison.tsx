@@ -23,7 +23,7 @@ interface BenchmarkRow {
   yours: string;
   avg: string;
   top25: string;
-  verdict: "하위" | "평균" | "상위";
+  verdict: "low" | "avg" | "high";
   description?: string;
 }
 
@@ -77,15 +77,15 @@ export default function BenchmarkComparison({
   const { t } = useTranslation();
 
   const verdictLabel: Record<string, string> = {
-    하위: t("benchmark.verdict.low"),
-    평균: t("benchmark.verdict.avg"),
-    상위: t("benchmark.verdict.high"),
+    low: t("benchmark.verdict.low"),
+    avg: t("benchmark.verdict.avg"),
+    high: t("benchmark.verdict.high"),
   };
 
   const verdictClass: Record<string, string> = {
-    하위: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
-    평균: "bg-secondary text-secondary-foreground border-border",
-    상위: "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20",
+    low: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
+    avg: "bg-secondary text-secondary-foreground border-border",
+    high: "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20",
   };
 
   return (

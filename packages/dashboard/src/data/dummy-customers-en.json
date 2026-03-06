@@ -1,0 +1,400 @@
+[
+  {
+    "id": "demo-toronchul",
+    "name": "Toronchul",
+    "platform": "Web",
+    "category": "Community",
+    "categorySub": "Debate",
+    "region": "KR",
+    "measurementGrade": "A",
+    "level": 2,
+    "levelName": "Ad-only Dependency",
+    "metrics": {
+      "dau": 1200,
+      "mau": 8500,
+      "stickiness": 0.141,
+      "monthlyRevenue": 320000,
+      "currentModels": ["adsense_display"],
+      "ecpm": 2200,
+      "arpu": 38,
+      "bounceRate": 0.42,
+      "avgSessionDuration": 185,
+      "pagesPerSession": 3.2,
+      "retentionD1": 0.28,
+      "retentionD7": 0.12,
+      "monthlyChurn": 0.09
+    },
+    "goals": {
+      "targetRevenue": 2000000,
+      "revenueGap": 1680000
+    },
+    "diagnosis": {
+      "levelReason": "Running only Google AdSense display ads with no paid conversion attempts",
+      "keyInsight": "ARPU is below category average. Monetization efficiency is low relative to community engagement (Stickiness 14.1%) — premium membership is the key lever.",
+      "potential": "4–6x revenue upside vs. current"
+    },
+    "positioning": {
+      "tam": {
+        "revenue": "$650M",
+        "revenueLabel": "Korea Online Community Ad Market (2024)",
+        "users": "35M",
+        "usersLabel": "Total Korean online community users"
+      },
+      "sam": {
+        "revenue": "$32M",
+        "revenueLabel": "Debate / Current Affairs Vertical Communities",
+        "users": "1.8M",
+        "usersLabel": "Active debate & current affairs community users"
+      },
+      "som": {
+        "revenue": "$15K",
+        "revenueLabel": "Expected subscription revenue (Year 1, Base scenario)",
+        "users": "8.5K",
+        "usersLabel": "Current MAU — immediately addressable users"
+      },
+      "targetSegment": "Ages 20–40, civics & debate participants",
+      "marketStage": "growing",
+      "positionStatement": "Debate-focused community — engagement-driven UX + AI analysis for differentiation",
+      "competitors": [
+        { "name": "DCInside", "model": "Ads (CPM)", "scale": "MAU 10M+", "differentiator": "Traffic volume, anonymity" },
+        { "name": "Clien", "model": "Ads + Donations", "scale": "MAU 2M", "differentiator": "IT/Tech niche community" },
+        { "name": "Reddit", "model": "Ads + Premium", "scale": "MAU 500M (Global)", "differentiator": "Subreddit ecosystem, UGC" },
+        { "name": "Ssulpa", "model": "Ads", "scale": "DL 10K+ (inactive)", "differentiator": "Gamified debate, leveling system" },
+        { "name": "Torenus", "model": "Premium (IAP)", "scale": "Very small (solo dev)", "differentiator": "Voice+text debate, ranking" },
+        { "name": "BELLRUNS", "model": "Ads (AdSense)", "scale": "Small (Web+App)", "differentiator": "Balance games, stats-based opinion" },
+        { "name": "BanbanVote", "model": "Undisclosed", "scale": "Small (Startup)", "differentiator": "Real-time issue voting + debate feed" }
+      ],
+      "map": {
+        "xAxis": "User Scale",
+        "yAxis": "Revenue Diversification",
+        "points": [
+          { "name": "Toronchul", "x": 8, "y": 12, "isSelf": true },
+          { "name": "DCInside", "x": 78, "y": 15 },
+          { "name": "Clien", "x": 42, "y": 38 },
+          { "name": "Reddit", "x": 92, "y": 82 },
+          { "name": "Ssulpa", "x": 14, "y": 10 },
+          { "name": "Torenus", "x": 3, "y": 22 },
+          { "name": "BELLRUNS", "x": 20, "y": 25 },
+          { "name": "BanbanVote", "x": 5, "y": 5 }
+        ],
+        "target": { "x": 30, "y": 55 }
+      },
+      "moats": [
+        "Debate-specialized UX (pro/con structure, issue decomposition)",
+        "High session time (3m 05s, P75 level)",
+        "AI debate analysis → premium conversion asset"
+      ],
+      "vulnerabilities": [
+        "Insufficient user base (MAU 8.5K, below cohort)",
+        "Single revenue model (100% ad-dependent)",
+        "No brand awareness or established acquisition channels"
+      ]
+    },
+    "recommendation": {
+      "primaryModel": "Subscription (Premium Membership)",
+      "reason": "High revisit rates among debate participants make subscription retention viable",
+      "bundleItems": ["Ad-free experience", "AI Debate Analysis Report", "Premium Badge & Ranking"],
+      "priceA": 4900,
+      "priceB": 7900,
+      "sdk": "Stripe"
+    },
+    "simulation": {
+      "price": 4900,
+      "scenarios": [
+        { "label": "Conservative", "conversionRate": 0.015, "subscribers": 128, "subscriptionRevenue": 627200, "adRevenue": 320000, "total": 947200 },
+        { "label": "Base", "conversionRate": 0.03, "subscribers": 255, "subscriptionRevenue": 1249500, "adRevenue": 320000, "total": 1569500 },
+        { "label": "Optimistic", "conversionRate": 0.05, "subscribers": 425, "subscriptionRevenue": 2082500, "adRevenue": 320000, "total": 2402500 }
+      ],
+      "costStructure": {
+        "fixedCosts": [
+          { "item": "Stripe Payment Fees", "monthlyCost": 45000 },
+          { "item": "Cloud Server (Vercel Pro)", "monthlyCost": 25000 },
+          { "item": "AI API (OpenAI)", "monthlyCost": 80000 },
+          { "item": "Domain & DNS", "monthlyCost": 3000 },
+          { "item": "Monitoring (Sentry)", "monthlyCost": 15000 }
+        ],
+        "variableCostPerUser": 12,
+        "cashflow": [
+          { "month": "Mar", "revenue": 320000, "cost": 270000, "net": 50000 },
+          { "month": "Apr", "revenue": 480000, "cost": 280000, "net": 200000 },
+          { "month": "May", "revenue": 720000, "cost": 295000, "net": 425000 },
+          { "month": "Jun", "revenue": 950000, "cost": 312000, "net": 638000 },
+          { "month": "Jul", "revenue": 1350000, "cost": 348000, "net": 1002000 },
+          { "month": "Aug", "revenue": 1800000, "cost": 384000, "net": 1416000 },
+          { "month": "Sep", "revenue": 2300000, "cost": 432000, "net": 1868000 },
+          { "month": "Oct", "revenue": 2900000, "cost": 504000, "net": 2396000 },
+          { "month": "Nov", "revenue": 3600000, "cost": 588000, "net": 3012000 },
+          { "month": "Dec", "revenue": 4200000, "cost": 648000, "net": 3552000 },
+          { "month": "Jan", "revenue": 4700000, "cost": 708000, "net": 3992000 },
+          { "month": "Feb", "revenue": 5000000, "cost": 768000, "net": 4232000 }
+        ]
+      },
+      "conversionRationale": {
+        "benchmarkSource": "Lenny's Newsletter SaaS/Community Conversion Benchmarks (2024)",
+        "factors": [
+          { "factor": "High session time (3m 05s, P75)", "effect": "positive", "detail": "Users deeply engage with content — higher likelihood of recognizing paid value" },
+          { "factor": "Stickiness 14.1% (category average)", "effect": "positive", "detail": "Revisit frequency serves as a leading indicator for subscription retention" },
+          { "factor": "MAU 8.5K (small scale)", "effect": "negative", "detail": "Small absolute user base limits conversion pool and caps MRR potential" },
+          { "factor": "No prior paid conversion attempts", "effect": "negative", "detail": "Willingness to pay is unvalidated — requires conservative initial CVR estimates" },
+          { "factor": "Debate-specialized UX differentiation", "effect": "positive", "detail": "Pro/con structure and issue decomposition have no substitutes — strengthens premium conversion motivation" }
+        ]
+      },
+      "requiredFeatures": [
+        { "feature": "Stripe Payment Integration", "priority": "high", "effort": "3d", "status": "needed" },
+        { "feature": "Premium Membership Page", "priority": "high", "effort": "2d", "status": "needed" },
+        { "feature": "Ad-free Toggle (Premium)", "priority": "high", "effort": "1d", "status": "needed" },
+        { "feature": "AI Debate Analysis Report", "priority": "medium", "effort": "5d", "status": "planned" },
+        { "feature": "Premium Badge & Ranking", "priority": "medium", "effort": "2d", "status": "planned" },
+        { "feature": "Existing Content Premium Lock", "priority": "medium", "effort": "1d", "status": "ready" },
+        { "feature": "Subscription Management (Cancel/Change)", "priority": "low", "effort": "2d", "status": "planned" }
+      ]
+    },
+    "benchmarks": {
+      "ecpmDisplay": { "avg": 2.0, "unit": "USD" },
+      "ecpmNative": { "avg": 5.0, "unit": "USD" },
+      "subscriptionConversion": { "low": 0.015, "median": 0.03, "high": 0.06 },
+      "subscriptionPrice": { "low": 3900, "high": 9900, "unit": "USD/mo" },
+      "churnMonthly": { "low": 0.06, "high": 0.12 },
+      "arpuAdOnly": { "low": 20, "high": 90 },
+      "arpuCombined": { "low": 100, "high": 350 },
+      "stickiness": { "low": 0.10, "high": 0.25 },
+      "bounceRate": { "low": 0.30, "high": 0.55 },
+      "avgSessionDuration": { "low": 120, "high": 300 },
+      "pagesPerSession": { "low": 2.0, "high": 5.0 },
+      "retention": { "day1": { "low": 0.20, "high": 0.35 }, "day7": { "low": 0.08, "high": 0.18 } },
+      "verdict": {
+        "ecpm": "avg",
+        "stickiness": "avg",
+        "arpu": "low",
+        "arpuAdOnly": "low",
+        "bounceRate": "avg",
+        "sessionDuration": "high",
+        "pagesPerSession": "avg",
+        "retentionD1": "avg",
+        "retentionD7": "avg",
+        "churn": "avg"
+      }
+    },
+    "roadmap": {
+      "currentWeek": 1,
+      "totalWeeks": 4,
+      "weeks": [
+        {
+          "week": 1,
+          "theme": "Preparation — What to sell",
+          "hypothesis": "Community users are willing to pay for a premium membership (ad-free + AI analysis)",
+          "metric": "Confirm paid models of 3 competitor services + finalize membership spec",
+          "revenueImpact": {
+            "scenario": "Base",
+            "expectedMrr": 1569500,
+            "description": "Subscription model finalized at $3.80/mo — Base scenario (CVR 3%) yields MRR $1,207"
+          },
+          "tasks": [
+            { "name": "List 3 premium feature candidates", "priority": "high", "startDay": 1, "endDay": 2 },
+            { "name": "Research paid models of 3 competitor communities", "priority": "medium", "startDay": 2, "endDay": 5 },
+            { "name": "Finalize membership spec + pricing", "priority": "high", "startDay": 5, "endDay": 7 }
+          ],
+          "hours": "3–4h",
+          "deliverable": "Premium membership spec (1 page)"
+        },
+        {
+          "week": 2,
+          "theme": "Build — Make it payable",
+          "hypothesis": "Stripe payment + premium lock can be implemented within 1 week",
+          "metric": "Staging environment payment flow test passed",
+          "revenueImpact": {
+            "scenario": "Conservative",
+            "expectedMrr": 947200,
+            "description": "Payment infra complete — Conservative scenario (CVR 1.5%, 128 subs) enables MRR $729"
+          },
+          "tasks": [
+            { "name": "Set up Stripe payment integration", "priority": "high", "startDay": 8, "endDay": 10 },
+            { "name": "Build premium membership page UI", "priority": "high", "startDay": 9, "endDay": 12 },
+            { "name": "Apply premium lock to existing features", "priority": "medium", "startDay": 12, "endDay": 13 },
+            { "name": "Staging environment test", "priority": "medium", "startDay": 13, "endDay": 14 }
+          ],
+          "hours": "6–8h",
+          "deliverable": "Subscription-ready build"
+        },
+        {
+          "week": 3,
+          "theme": "Launch — Ship to market",
+          "hypothesis": "Notifying existing users about premium will drive funnel entry",
+          "metric": "Premium page visit rate > 5%",
+          "revenueImpact": {
+            "scenario": "Base",
+            "expectedMrr": 1569500,
+            "description": "Conversion funnel live — at 5% visit rate, Base scenario (CVR 3%) MRR $1,207 path entered"
+          },
+          "tasks": [
+            { "name": "Production deploy", "priority": "high", "startDay": 15, "endDay": 16 },
+            { "name": "Send email/in-app notifications to existing users", "priority": "medium", "startDay": 16, "endDay": 18 },
+            { "name": "Start daily conversion rate tracking", "priority": "low", "startDay": 18, "endDay": 21 }
+          ],
+          "hours": "2–3h",
+          "deliverable": "7-day conversion data"
+        },
+        {
+          "week": 4,
+          "theme": "Decide — Let data guide you",
+          "hypothesis": "7-day conversion rate will reach category benchmark (1.5%) or above",
+          "metric": "CVR ≥ 1.5%",
+          "revenueImpact": {
+            "scenario": "Conservative",
+            "expectedMrr": 947200,
+            "description": "If CVR 1.5% confirmed — Conservative MRR $729 validated, 47% of target revenue ($1,538)"
+          },
+          "tasks": [
+            { "name": "Review 7-day conversion rate", "priority": "high", "startDay": 22, "endDay": 25 },
+            { "name": "Go / Adjust / Redesign decision", "priority": "high", "startDay": 25, "endDay": 28 }
+          ],
+          "hours": "1–2h",
+          "deliverable": "Week 4 decision report",
+          "goNoGo": {
+            "go": "CVR ≥ 1.5% → Run price A/B test",
+            "adjust": "CVR 0.5–1.5% → Change bundle or lower price",
+            "redesign": "CVR < 0.5% → Re-evaluate membership value"
+          }
+        }
+      ]
+    },
+    "strategy": {
+      "northStar": "MAU 50K + MRR $3.8K",
+      "timeframe": "12 months",
+      "executiveSummary": "Transition from ad-only revenue to a subscription hybrid model, targeting MAU 50K and MRR $3.8K within 12 months via a 3-Horizon growth strategy",
+      "keyInsight": "Community Stickiness (14.1%) is a strong leading indicator for subscription conversion — revenue diversification is the top priority",
+      "marketContext": {
+        "trends": [
+          {
+            "trend": "Community subscription models expanding",
+            "detail": "Reddit Premium, Discord Nitro and other community platforms saw subscription revenue grow 35% YoY",
+            "impact": "positive",
+            "relevance": "Market validation for premium membership launch"
+          },
+          {
+            "trend": "Rising demand for AI-powered content analysis",
+            "detail": "GPT-based summary and analysis tool usage surging among community users (YoY +120%)",
+            "impact": "positive",
+            "relevance": "Strengthens premium value of AI debate analysis reports"
+          },
+          {
+            "trend": "Display ad eCPM declining",
+            "detail": "Cookieless transition and ad blocker adoption are driving display eCPM down 8–12% annually",
+            "impact": "negative",
+            "relevance": "Heightens risk of ad-only dependency — diversification is urgent"
+          },
+          {
+            "trend": "Growing interest in civic & debate content",
+            "detail": "Election seasons and social issues are driving 20–30% traffic increase to debate platforms",
+            "impact": "neutral",
+            "relevance": "Short-term traffic tailwind, but sustainability depends on event cycles"
+          }
+        ]
+      },
+      "projection": [
+        { "month": "Mar", "mau": 8500, "mrr": 320000, "projected": false },
+        { "month": "Apr", "mau": 9200, "mrr": 480000, "projected": false },
+        { "month": "May", "mau": 10500, "mrr": 720000, "projected": false },
+        { "month": "Jun", "mau": 12000, "mrr": 950000, "projected": true },
+        { "month": "Jul", "mau": 15000, "mrr": 1350000, "projected": true },
+        { "month": "Aug", "mau": 18000, "mrr": 1800000, "projected": true },
+        { "month": "Sep", "mau": 22000, "mrr": 2300000, "projected": true },
+        { "month": "Oct", "mau": 28000, "mrr": 2900000, "projected": true },
+        { "month": "Nov", "mau": 35000, "mrr": 3600000, "projected": true },
+        { "month": "Dec", "mau": 40000, "mrr": 4200000, "projected": true },
+        { "month": "Jan", "mau": 45000, "mrr": 4700000, "projected": true },
+        { "month": "Feb", "mau": 50000, "mrr": 5000000, "projected": true }
+      ],
+      "phases": [
+        {
+          "quarter": "Q1 2026",
+          "theme": "Revenue Model Diversification",
+          "goals": [
+            "Launch premium membership with payment flow",
+            "Achieve subscription CVR 3% (benchmark target)",
+            "Transition to ad + subscription hybrid revenue"
+          ],
+          "status": "active",
+          "horizon": "H1",
+          "rationale": "ARPU is below category average ($0.03) and ad eCPM is declining — adding subscription revenue is the fastest lever",
+          "kpis": [
+            { "metric": "Subscription CVR", "current": "0%", "target": "3%" },
+            { "metric": "MRR", "current": "$246", "target": "$731" },
+            { "metric": "ARPU", "current": "$0.03", "target": "$0.07" }
+          ],
+          "risks": [
+            { "risk": "User payment resistance", "mitigation": "Offer 7-day free trial", "severity": "high" },
+            { "risk": "Stripe integration delay", "mitigation": "Minimize MVP feature scope", "severity": "medium" }
+          ],
+          "successCriteria": "Subscription CVR ≥ 1.5% + MRR ≥ $462 to enter Phase 2"
+        },
+        {
+          "quarter": "Q2 2026",
+          "theme": "User Growth & Retention",
+          "goals": [
+            "MAU 8.5K → 20K (SEO + content marketing)",
+            "D7 Retention 12% → 18% (P75 level)",
+            "Optimize premium member onboarding"
+          ],
+          "status": "upcoming",
+          "horizon": "H1",
+          "rationale": "With revenue model secured, user volume is the next growth bottleneck — SEO and content drive organic acquisition",
+          "kpis": [
+            { "metric": "MAU", "current": "8.5K", "target": "20K" },
+            { "metric": "D7 Retention", "current": "12%", "target": "18%" },
+            { "metric": "Organic traffic share", "current": "45%", "target": "65%" }
+          ],
+          "risks": [
+            { "risk": "SEO impact delay", "mitigation": "Run content marketing in parallel (3x/week debate highlights)", "severity": "medium" },
+            { "risk": "Poor new user retention", "mitigation": "A/B test onboarding funnel", "severity": "high" }
+          ],
+          "successCriteria": "MAU ≥ 15K + D7 Retention ≥ 15% to enter Phase 3"
+        },
+        {
+          "quarter": "Q3 2026",
+          "theme": "Product-Market Fit Validation",
+          "goals": [
+            "Monthly Churn Rate ≤ 6%",
+            "NPS 40+",
+            "Complete premium bundle price A/B test"
+          ],
+          "status": "upcoming",
+          "horizon": "H2",
+          "rationale": "After securing user volume, validate PMF via Churn and NPS — essential gate before scaling up",
+          "kpis": [
+            { "metric": "Monthly Churn", "current": "9%", "target": "< 6%" },
+            { "metric": "NPS", "current": "N/A", "target": "40+" },
+            { "metric": "MRR", "current": "$1.4K", "target": "$2.3K" }
+          ],
+          "risks": [
+            { "risk": "Churn reduction stalls", "mitigation": "Churn prediction model + win-back campaigns", "severity": "high" },
+            { "risk": "High price sensitivity", "mitigation": "Add annual subscription discount option", "severity": "low" }
+          ],
+          "successCriteria": "Churn < 8% + NPS ≥ 30 to enter Scale-up Phase"
+        },
+        {
+          "quarter": "Q4 2026",
+          "theme": "Scale-up Preparation",
+          "goals": [
+            "Reach MAU 50K",
+            "Break MRR $3.8K (North Star)",
+            "Diversify growth channels (start performance marketing)"
+          ],
+          "status": "upcoming",
+          "horizon": "H3",
+          "rationale": "With PMF validated, accelerate user acquisition via performance marketing — scale based on LTV:CAC ratio",
+          "kpis": [
+            { "metric": "MAU", "current": "28K", "target": "50K" },
+            { "metric": "MRR", "current": "$2.3K", "target": "$3.8K" },
+            { "metric": "LTV:CAC", "current": "N/A", "target": "> 3:1" }
+          ],
+          "risks": [
+            { "risk": "CAC increase", "mitigation": "Maintain organic channels to manage blended CAC", "severity": "medium" },
+            { "risk": "Server infrastructure bottleneck", "mitigation": "Pre-build traffic-based auto-scaling", "severity": "low" }
+          ],
+          "successCriteria": "MAU 50K + MRR $3.8K = North Star achieved"
+        }
+      ]
+    }
+  }
+]

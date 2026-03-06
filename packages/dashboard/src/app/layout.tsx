@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Propel — Co-Product Owner",
-  description: "당신의 서비스, 수익화 처방을 받아보세요",
+  description: "Get a monetization prescription for your service",
 };
 
 export default function RootLayout({

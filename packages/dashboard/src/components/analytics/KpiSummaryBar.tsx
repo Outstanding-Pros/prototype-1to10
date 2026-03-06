@@ -1,17 +1,12 @@
 "use client";
 
 import KpiCard from "./KpiCard";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation, useLanguage } from "@/lib/i18n";
+import { formatCurrencyCompact } from "@/lib/currency";
 import type { DailyDataPoint } from "@/lib/mock-timeseries";
 
 interface KpiSummaryBarProps {
   data: DailyDataPoint[];
-}
-
-function formatCurrency(v: number) {
-  if (v >= 1_000_000) return `₩${(v / 1_000_000).toFixed(1)}M`;
-  if (v >= 1_000) return `₩${(v / 1_000).toFixed(0)}K`;
-  return `₩${v.toLocaleString()}`;
 }
 
 function formatNumber(v: number) {
@@ -41,6 +36,8 @@ const CHART_COLORS = {
 
 export default function KpiSummaryBar({ data }: KpiSummaryBarProps) {
   const { t } = useTranslation();
+  const { language } = useLanguage();
+  const fmtCurrency = (v: number) => formatCurrencyCompact(v, language);
 
   if (data.length < 8) return null;
 
@@ -67,7 +64,7 @@ export default function KpiSummaryBar({ data }: KpiSummaryBarProps) {
     {
       label: t("analytics.kpi.mrr"),
       description: t("analytics.kpi.mrr.desc"),
-      value: formatCurrency(latest.mrr),
+      value: fmtCurrency(latest.mrr),
       change: calcChange(latest.mrr, sevenDaysAgo.mrr),
       sparkline: data.map((d) => d.mrr),
       color: CHART_COLORS.chart3, // green — revenue/growth
@@ -75,7 +72,7 @@ export default function KpiSummaryBar({ data }: KpiSummaryBarProps) {
     {
       label: t("analytics.kpi.arpu"),
       description: t("analytics.kpi.arpu.desc"),
-      value: formatCurrency(latest.arpu),
+      value: fmtCurrency(latest.arpu),
       change: calcChange(latest.arpu, sevenDaysAgo.arpu),
       sparkline: data.map((d) => d.arpu),
       color: CHART_COLORS.chart4, // amber — unit economics watchpoint

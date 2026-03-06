@@ -11,7 +11,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { MilestoneIcon } from "@primer/octicons-react";
-import { useTranslation, type TranslationKey } from "@/lib/i18n";
+import { useTranslation, useLanguage, type TranslationKey } from "@/lib/i18n";
+import { formatCurrency } from "@/lib/currency";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -116,6 +117,7 @@ function ProjectionTooltip({
   payload?: { name: string; value: number; color: string }[];
   label?: string;
 }) {
+  const { language } = useLanguage();
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-lg border bg-popover px-3 py-2 text-xs shadow-md">
@@ -129,7 +131,7 @@ function ProjectionTooltip({
           <span className="text-muted-foreground">{entry.name}</span>
           <span className="ml-auto font-medium tabular-nums">
             {entry.name === "MRR"
-              ? `₩${(entry.value / 1000000).toFixed(1)}M`
+              ? formatCurrency(entry.value, language)
               : entry.value >= 1000
               ? `${(entry.value / 1000).toFixed(1)}K`
               : entry.value.toLocaleString()}
@@ -154,6 +156,7 @@ export default function Strategy({
   phases,
 }: StrategyProps) {
   const { t } = useTranslation();
+  const { language } = useLanguage();
   const [selectedIdx, setSelectedIdx] = useState(
     () => phases.findIndex((p) => p.status === "active") ?? 0,
   );
@@ -245,9 +248,7 @@ export default function Strategy({
                 <YAxis
                   yAxisId="mrr"
                   orientation="right"
-                  tickFormatter={(v: number) =>
-                    `₩${(v / 1000000).toFixed(1)}M`
-                  }
+                  tickFormatter={(v: number) => formatCurrency(v, language)}
                   tick={{ fontSize: 11 }}
                   className="text-muted-foreground"
                   tickLine={false}

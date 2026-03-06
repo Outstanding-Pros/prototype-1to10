@@ -2,9 +2,11 @@
 
 import { getCustomer } from "@/lib/customer";
 import Strategy from "@/components/Strategy";
+import { useLanguage } from "@/lib/i18n";
 
 export default function StrategyPage() {
-  const c = getCustomer();
+  const { language } = useLanguage();
+  const c = getCustomer(undefined, language);
 
   if (!c.strategy) return null;
 
